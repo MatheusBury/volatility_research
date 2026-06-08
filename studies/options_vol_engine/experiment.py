@@ -166,6 +166,94 @@ def compute_garch_forecast_series(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def compute_har_forecast_series(df: pd.DataFrame) -> pd.DataFrame:
+    """HAR-RV (Corsi 2009): 20d ahead forecast via rolling OLS on RV components.
+
+    RV_{t+20} = β0 + β1·RV_daily + β2·RV_weekly + β3·RV_monthly + ε
+    """
+    df = df.copy()
+    df["rv_daily"] = df["rv_20d"]
+    df["rv_weekly"] = df["rv_20d"].rolling(5, min_periods=1).mean()
+    df["rv_monthly"] = df["rv_20d"].rolling(22, min_periods=1).mean()
+    df["har_forecast_20d"] = np.nan
+
+    n = len(df)
+    for i in range(GARCH_WINDOW, n):
+        train_end = i - RV_WINDOW - 1
+        if train_end < GARCH_WINDOW:
+            continue
+        if train_end + RV_WINDOW > n:
+            continue
+        train_start = train_end - GARCH_WINDOW
+        if train_start < 0:
+            continue
+        x_mat = df.iloc[train_start:train_end][["rv_daily", "rv_weekly", "rv_monthly"]].values
+        y = df.iloc[train_start + RV_WINDOW:train_end + RV_WINDOW]["rv_20d"].values
+        if len(y) == 0:
+            continue
+        valid = ~np.isnan(x_mat).any(axis=1) & ~np.isnan(y)
+        x_c, y_c = x_mat[valid], y[valid]
+        if len(x_c) < 252:
+            continue
+        x_design = np.column_stack([np.ones(len(x_c)), x_c])
+        try:
+            beta = np.linalg.lstsq(x_design, y_c, rcond=None)[0]
+            x_i = np.array([1.0, df.iloc[i]["rv_daily"],
+                            df.iloc[i]["rv_weekly"], df.iloc[i]["rv_monthly"]])
+            df.loc[df.index[i], "har_forecast_20d"] = float(x_i @ beta)
+        except Exception:
+            continue
+    return df
+
+
+def compute_har_regime_forecast_series(df: pd.DataFrame,
+                                        states: np.ndarray) -> pd.DataFrame:
+    """HAR-RV with HMM regime dummies: adds 4 regime binary features."""
+    df = df.copy()
+    df["rv_daily"] = df["rv_20d"]
+    df["rv_weekly"] = df["rv_20d"].rolling(5, min_periods=1).mean()
+    df["rv_monthly"] = df["rv_20d"].rolling(22, min_periods=1).mean()
+    n_regimes = 4
+    for s in range(n_regimes):
+        col_name = f"regime_{s}_dummy"
+        df[col_name] = 0.0
+
+    for i, idx in enumerate(df.index):
+        if i < len(states):
+            col_name = f"regime_{states[i]}_dummy"
+            df.loc[idx, col_name] = 1.0
+
+    df["har_regime_forecast_20d"] = np.nan
+    feat_cols = ["rv_daily", "rv_weekly", "rv_monthly"] + \
+                [f"regime_{s}_dummy" for s in range(n_regimes)]
+    n = len(df)
+    for i in range(GARCH_WINDOW, n):
+        train_end = i - RV_WINDOW - 1
+        if train_end < GARCH_WINDOW:
+            continue
+        if train_end + RV_WINDOW > n:
+            continue
+        train_start = train_end - GARCH_WINDOW
+        if train_start < 0:
+            continue
+        x_mat = df.iloc[train_start:train_end][feat_cols].values
+        y = df.iloc[train_start + RV_WINDOW:train_end + RV_WINDOW]["rv_20d"].values
+        if len(y) == 0:
+            continue
+        valid = ~np.isnan(x_mat).any(axis=1) & ~np.isnan(y)
+        x_c, y_c = x_mat[valid], y[valid]
+        if len(x_c) < 252:
+            continue
+        x_design = np.column_stack([np.ones(len(x_c)), x_c])
+        try:
+            beta = np.linalg.lstsq(x_design, y_c, rcond=None)[0]
+            x_i = np.array([1.0] + [df.iloc[i][c] for c in feat_cols])
+            df.loc[df.index[i], "har_regime_forecast_20d"] = float(x_i @ beta)
+        except Exception:
+            continue
+    return df
+
+
 def compute_option_iv(price: float, spot: float, strike: float, tte: float,
                       flag: str, r: float = RISK_FREE_RATE) -> float | None:
     if price <= 0 or spot <= 0 or strike <= 0 or tte <= 0:
@@ -308,9 +396,10 @@ def classify_vol_regime(rv_series: pd.Series, n_states: int = 4) -> np.ndarray:
 def study1_forecast_vs_iv(atm_iv: pd.DataFrame,
                            underlying: pd.DataFrame,
                            symbol: str) -> dict:
-    """Compare GARCH forecast RV vs ATM IV, measure VRP and future returns."""
+    """Compare GARCH/HAR-RV forecasts vs ATM IV, measure VRP and future returns."""
     merged = atm_iv.merge(
-        underlying[["timestamp", "rv_20d", "garch_forecast_20d"]],
+        underlying[["timestamp", "rv_20d", "garch_forecast_20d",
+                     "har_forecast_20d"]],
         on="timestamp", how="inner"
     )
     if merged.empty:
@@ -318,6 +407,7 @@ def study1_forecast_vs_iv(atm_iv: pd.DataFrame,
 
     merged["vrp"] = merged["iv"] - merged["garch_forecast_20d"]
     merged["vrp_rv"] = merged["iv"] - merged["rv_20d"]
+    merged["vrp_har"] = merged["iv"] - merged["har_forecast_20d"]
 
     # Future RV: compute forward-looking 20d realized vol
     rv_series = underlying.set_index("timestamp")["rv_20d"]
@@ -348,8 +438,10 @@ def study1_forecast_vs_iv(atm_iv: pd.DataFrame,
         "n_obs": len(merged),
         "mean_iv": float(merged["iv"].mean()),
         "mean_garch_forecast": float(merged["garch_forecast_20d"].mean()),
+        "mean_har_forecast": float(merged["har_forecast_20d"].mean()),
         "mean_rv": float(merged["rv_20d"].mean()),
         "mean_vrp_iv_garch": float(merged["vrp"].mean()),
+        "mean_vrp_iv_har": float(merged["vrp_har"].mean()),
         "mean_vrp_iv_rv": float(merged["vrp_rv"].mean()),
         "vrp_positive_pct": float((merged["vrp"] > 0).mean() * 100),
         "long_vol_n": len(long),
@@ -830,16 +922,16 @@ def study5_straddle_backtest(atm_iv: pd.DataFrame,
 def study_forecast_comparison(ivx_df: pd.DataFrame,
                                underlying: pd.DataFrame,
                                symbol: str) -> dict:
-    """Compare IVX vs GARCH forecast vs future realized RV 20d.
+    """Compare all vol forecast models vs future realized RV 20d.
 
-    This is the decisive test: does the GARCH model add value beyond
-    the market's implied vol (IVX)?
+    Models: IVX, GARCH(1,1), HAR-RV, HAR-RV+Regime, Média IVX+GARCH.
     """
     if ivx_df.empty:
         return {"error": "No IVX data"}
 
     merged = ivx_df.merge(
-        underlying[["timestamp", "rv_20d", "garch_forecast_20d"]],
+        underlying[["timestamp", "rv_20d", "garch_forecast_20d",
+                     "har_forecast_20d", "har_regime_forecast_20d"]],
         on="timestamp", how="inner"
     )
     if merged.empty:
@@ -851,16 +943,23 @@ def study_forecast_comparison(ivx_df: pd.DataFrame,
         lambda t: rv_series.shift(-RV_WINDOW).reindex(rv_series.index).loc[t]
         if t in rv_series.index else np.nan
     )
-    merged = merged.dropna(subset=["future_rv_20d", "garch_forecast_20d"])
+    merged = merged.dropna(subset=["future_rv_20d", "garch_forecast_20d",
+                                    "har_forecast_20d"])
     merged.to_csv(os.path.join(RESULTS_DIR, f"{symbol}_forecast_comparison.csv"), index=False)
 
     if len(merged) < 10:
         return {"error": f"Insufficient data ({len(merged)} obs)"}
 
     y_true = merged["future_rv_20d"].values
-    y_ivx = merged["iv"].values
-    y_garch = merged["garch_forecast_20d"].values
-    y_comb = merged[["iv", "garch_forecast_20d"]].mean(axis=1).values
+    models = {
+        "ivx": merged["iv"].values,
+        "garch": merged["garch_forecast_20d"].values,
+        "har": merged["har_forecast_20d"].values,
+    }
+    har_regime = merged["har_regime_forecast_20d"]
+    if har_regime.notna().sum() > 10:
+        models["har_regime"] = har_regime.values
+    models["combined"] = merged[["iv", "garch_forecast_20d"]].mean(axis=1).values
 
     from scipy.stats import spearmanr
 
@@ -877,39 +976,34 @@ def study_forecast_comparison(ivx_df: pd.DataFrame,
     def pearson_corr(a, b):
         return np.corrcoef(a, b)[0, 1]
 
-    results = {
-        "symbol": symbol,
-        "n_obs": len(merged),
-        "ivx_mae": float(mae(y_ivx, y_true)),
-        "garch_mae": float(mae(y_garch, y_true)),
-        "combined_mae": float(mae(y_comb, y_true)),
-        "ivx_rmse": float(rmse(y_ivx, y_true)),
-        "garch_rmse": float(rmse(y_garch, y_true)),
-        "combined_rmse": float(rmse(y_comb, y_true)),
-        "ivx_spearman": float(spearman_corr(y_ivx, y_true)),
-        "garch_spearman": float(spearman_corr(y_garch, y_true)),
-        "combined_spearman": float(spearman_corr(y_comb, y_true)),
-        "ivx_pearson": float(pearson_corr(y_ivx, y_true)),
-        "garch_pearson": float(pearson_corr(y_garch, y_true)),
-        "combined_pearson": float(pearson_corr(y_comb, y_true)),
-    }
+    results = {"symbol": symbol, "n_obs": len(merged)}
+    for name, y_pred in models.items():
+        results[f"{name}_mae"] = float(mae(y_pred, y_true))
+        results[f"{name}_rmse"] = float(rmse(y_pred, y_true))
+        results[f"{name}_spearman"] = float(spearman_corr(y_pred, y_true))
+        results[f"{name}_pearson"] = float(pearson_corr(y_pred, y_true))
 
-    # Chart: scatter of forecasted vs actual
-    fig, axes = plt.subplots(1, 3, figsize=(15, 5))
-    for ax, y_pred, label, color in zip(
-        axes,
-        [y_ivx, y_garch, y_comb],
-        ["IVX", "GARCH(1,1)", "Média IVX+GARCH"],
-        ["red", "blue", "green"], strict=False
-    ):
-        ax.scatter(y_pred * 100, y_true * 100, alpha=0.4, s=10, c=color)
-        lims = [min(y_pred.min(), y_true.min()) * 100,
-                max(y_pred.max(), y_true.max()) * 100]
-        ax.plot(lims, lims, "k--", lw=0.5, alpha=0.5)
-        ax.set_xlabel(f"{label} (%)")
-        ax.set_ylabel("RV Futura 20d (%)")
-        ax.set_title(f"{label}")
-        ax.grid(alpha=0.3)
+    # Chart: scatter of forecasted vs actual (4 panels)
+    fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+    chart_models = [
+        ("ivx", "IVX", "red"),
+        ("garch", "GARCH(1,1)", "blue"),
+        ("har", "HAR-RV", "green"),
+        ("har_regime", "HAR-RV+Regime", "purple"),
+    ]
+    for ax, (key, label, color) in zip(axes.flat, chart_models, strict=False):
+        if key in models:
+            y_pred = models[key]
+            ax.scatter(y_pred * 100, y_true * 100, alpha=0.4, s=10, c=color)
+            lims = [min(y_pred.min(), y_true.min()) * 100,
+                    max(y_pred.max(), y_true.max()) * 100]
+            ax.plot(lims, lims, "k--", lw=0.5, alpha=0.5)
+            ax.set_xlabel(f"{label} (%)")
+            ax.set_ylabel("RV Futura 20d (%)")
+            ax.set_title(f"{label} — MAE={results.get(key+'_mae', 0)*100:.2f}%")
+            ax.grid(alpha=0.3)
+        else:
+            ax.text(0.5, 0.5, "Sem dados", ha="center", va="center", transform=ax.transAxes)
     fig.suptitle(f"Previsão vs Realizado — {symbol}", fontsize=14)
     fig.tight_layout()
     fig.savefig(os.path.join(CHARTS_DIR, f"{symbol}_forecast_comparison.png"), dpi=150)
@@ -939,21 +1033,24 @@ def generate_report(all_results: dict[str, dict]) -> str:
         "|---|---|",
         "| **MT5 D1 Parquet** | OHLCV diário dos subjacentes (2021-2026, 1252 dias) |",
         "| **IVX (B3)** | Índice de volatilidade implícita B3 (252 dias, 2025-2026) |",
+        "| **HAR-RV** | Heterogeneous Auto-Regressive RV (Corsi 2009) com 3 componentes de frequência |",
+        "| **HAR-RV+Regime** | HAR-RV com dummies de regime HMM (4 estados) |",
         "| **EWMAB3 (B3)** | Estimativa de volatilidade realizada B3 via EWMA |",
         "| **OpLab API (snapshot)** | Chain completa de opções com IV calculado via Black-Scholes |",
         "| **CSVs históricos** | Preços diários de opções extraídos via MT5 (2025-2026) |",
         "",
         "### Filtros Aplicados",
         "",
-        "- **VRP:** IVX (índice B3) como IV ATM primário, GARCH(1,1) como forecast RV",
+        "- **VRP:** IVX (índice B3) como IV ATM primário, GARCH(1,1) e HAR-RV como forecasts RV",
         "- **Opções (superfície/straddle):** IV ∈ [0.05, 1.50], volume > 0, moneyness [0.95, 1.05], DTE [20, 45]",
         "",
         "---",
         "",
         "## Estudo 1 — Forecast RV vs IV (VRP Analysis)",
         "",
-        "Comparação entre o índice de volatilidade implícita IVX (B3) e o forecast "
-        "GARCH(1,1). VRP = IVX - GARCH_Forecast.",
+        "Comparação entre o índice de volatilidade implícita IVX (B3) e múltiplos "
+        "modelos de forecast (GARCH(1,1), HAR-RV, HAR-RV+Regime). "
+        "VRP = IVX - Forecast.",
         "",
     ]
 
@@ -964,12 +1061,14 @@ def generate_report(all_results: dict[str, dict]) -> str:
         lines.append(f"| {'Métrica':30s} | " + " | ".join(f"{s:>14s}" for s in s1) + " |")
         lines.append("|" + "|".join("-" * 32 for _ in range(len(s1) + 1)) + "|")
 
-        metrics = ["mean_iv", "mean_garch_forecast", "mean_rv",
-                    "mean_vrp_iv_garch", "vrp_positive_pct",
-                    "long_vol_mean_return", "short_vol_mean_return",
-                    "signal_hit_rate", "n_obs"]
+        metrics = ["mean_iv", "mean_garch_forecast", "mean_har_forecast",
+                    "mean_rv", "mean_vrp_iv_garch", "mean_vrp_iv_har",
+                    "vrp_positive_pct", "long_vol_mean_return",
+                    "short_vol_mean_return", "signal_hit_rate", "n_obs"]
         labels = ["IV ATM Média (%)", "GARCH Forecast Média (%)",
+                   "HAR-RV Forecast Média (%)",
                    "RV 20d Média (%)", "VRP (IV - GARCH) Médio (%)",
+                   "VRP (IV - HAR-RV) Médio (%)",
                    "VRP Positivo (% obs)", "Retorno Long Vol Médio (%)",
                    "Retorno Short Vol Médio (%)", "Hit Rate do Sinal (%)",
                    "N Obs"]
@@ -1157,53 +1256,70 @@ def generate_report(all_results: dict[str, dict]) -> str:
             "",
             "---",
             "",
-            "## Comparação de Forecasts — IVX vs GARCH vs RV Futura",
+            "## Comparação de Forecasts — IVX vs GARCH vs HAR-RV vs RV Futura",
             "",
-            "Teste decisivo: o GARCH(1,1) agrega valor além da volatilidade implícita do mercado (IVX)? "
+            "Teste decisivo: modelos paramétricos (GARCH) e HAR-RV (Corsi 2009) "
+            "agregam valor além da volatilidade implícita do mercado (IVX)? "
             "A tabela abaixo compara cada modelo contra a volatilidade realizada nos 20 dias seguintes.",
             "",
         ])
 
-        lines.append(f"| {'Métrica':20s} | " + " | ".join(f"{s:>14s}" for s in fc) + " |")
-        lines.append("|" + "|".join("-" * 22 for _ in range(len(fc) + 1)) + "|")
+        lines.append(f"| {'Métrica':24s} | " + " | ".join(f"{s:>16s}" for s in fc) + " |")
+        lines.append("|" + "|".join("-" * 26 for _ in range(len(fc) + 1)) + "|")
 
         fc_metrics = [
-            ("n_obs", "N Obs", "{:>14.0f}"),
-            ("ivx_mae", "IVX - MAE (%)", "{:>14.2f}"),
-            ("garch_mae", "GARCH - MAE (%)", "{:>14.2f}"),
-            ("combined_mae", "Média - MAE (%)", "{:>14.2f}"),
-            ("ivx_rmse", "IVX - RMSE (%)", "{:>14.2f}"),
-            ("garch_rmse", "GARCH - RMSE (%)", "{:>14.2f}"),
-            ("combined_rmse", "Média - RMSE (%)", "{:>14.2f}"),
-            ("ivx_spearman", "IVX - Spearman", "{:>14.3f}"),
-            ("garch_spearman", "GARCH - Spearman", "{:>14.3f}"),
-            ("ivx_pearson", "IVX - Pearson", "{:>14.3f}"),
-            ("garch_pearson", "GARCH - Pearson", "{:>14.3f}"),
+            ("n_obs", "N Obs", "{:>16.0f}"),
+            ("ivx_mae", "IVX - MAE (%)", "{:>16.2f}"),
+            ("garch_mae", "GARCH - MAE (%)", "{:>16.2f}"),
+            ("har_mae", "HAR-RV - MAE (%)", "{:>16.2f}"),
+            ("har_regime_mae", "HAR-RV+Reg - MAE (%)", "{:>16.2f}"),
+            ("combined_mae", "Média - MAE (%)", "{:>16.2f}"),
+            ("ivx_rmse", "IVX - RMSE (%)", "{:>16.2f}"),
+            ("garch_rmse", "GARCH - RMSE (%)", "{:>16.2f}"),
+            ("har_rmse", "HAR-RV - RMSE (%)", "{:>16.2f}"),
+            ("har_regime_rmse", "HAR-RV+Reg - RMSE (%)", "{:>16.2f}"),
+            ("ivx_spearman", "IVX - Spearman", "{:>16.3f}"),
+            ("garch_spearman", "GARCH - Spearman", "{:>16.3f}"),
+            ("har_spearman", "HAR-RV - Spearman", "{:>16.3f}"),
+            ("har_regime_spearman", "HAR-RV+Reg - Spearman", "{:>16.3f}"),
+            ("ivx_pearson", "IVX - Pearson", "{:>16.3f}"),
+            ("garch_pearson", "GARCH - Pearson", "{:>16.3f}"),
+            ("har_pearson", "HAR-RV - Pearson", "{:>16.3f}"),
+            ("har_regime_pearson", "HAR-RV+Reg - Pearson", "{:>16.3f}"),
         ]
         for met, lbl, fmt in fc_metrics:
-            vals = [f"{lbl:20s}"]
+            vals = [f"{lbl:24s}"]
             for s_name in fc:
-                v = fc[s_name].get(met, 0)
-                if "mae" in met or "rmse" in met:
-                    vals.append(f"{v*100:>13.2f}")
+                v = fc[s_name].get(met, None)
+                if v is None or (isinstance(v, float) and np.isnan(v)):
+                    vals.append(f"{'N/A':>16s}")
+                elif "mae" in met or "rmse" in met:
+                    vals.append(f"{v*100:>15.2f}")
                 else:
                     vals.append(fmt.format(v))
             lines.append("| " + " | ".join(vals) + " |")
         lines.append("")
 
-        # Interpretation
-        lines.append("### Interpretação")
+        # Interpretation — compare all models
+        lines.append("### Interpretação — Ranking dos Modelos")
         lines.append("")
         for s_name in fc:
             f = fc[s_name]
-            ivx_mae = f["ivx_mae"] * 100
-            garch_mae = f["garch_mae"] * 100
-            diff = garch_mae - ivx_mae
-            better = "GARCH" if diff < 0 else "IVX"
-            lines.append(
-                f"- **{s_name}**: IVX MAE={ivx_mae:.2f}%, GARCH MAE={garch_mae:.2f}% → "
-                f"{better} é mais preciso ({abs(diff):.2f}pp de diferença)"
-            )
+            model_maes = {
+                "IVX": f.get("ivx_mae", np.nan),
+                "GARCH": f.get("garch_mae", np.nan),
+                "HAR-RV": f.get("har_mae", np.nan),
+                "HAR-RV+Reg": f.get("har_regime_mae", np.nan),
+            }
+            valid = {k: v for k, v in model_maes.items()
+                     if not (v is None or (isinstance(v, float) and np.isnan(v)))}
+            if valid:
+                best = min(valid, key=valid.get)  # type: ignore
+                best_mae = valid[best] * 100
+                lines.append(
+                    f"- **{s_name}**: Melhor = {best} ({best_mae:.2f}%) | "
+                    + " | ".join(f"{k}={v*100:.2f}%" for k, v in sorted(valid.items(), key=lambda x: x[1]))
+                )
         lines.append("")
 
     # Conclusions
@@ -1277,7 +1393,9 @@ def generate_report(all_results: dict[str, dict]) -> str:
         "### Nota Metodológica",
         "",
         "Estudos 1-3 usam o índice IVX (B3) como proxy de volatilidade implícita ATM "
-        "e GARCH(1,1) para forecast de volatilidade realizada, com 252 observações diárias. "
+        "e comparam 3 modelos de forecast de volatilidade realizada: GARCH(1,1), "
+        "HAR-RV (Corsi 2009) e HAR-RV com dummies de regime HMM. "
+        "Dados IVX: 252 observações diárias. "
         "Estudos 4-5 usam dados de opções individuais com filtros: IV entre 5% e 150%, "
         "volume > 0, moneyness entre 0,95 e 1,05 (ATM), DTE entre 20 e 45 dias. "
         "O Estudo 4 (superfície) mantém todos os níveis de moneyness.",
@@ -1337,6 +1455,24 @@ def run_study():
         underlying = compute_garch_forecast_series(underlying)
         n_garch = underlying["garch_forecast_20d"].notna().sum()
         print(f"  {n_garch} GARCH forecasts computed")
+
+        # 2b. HAR-RV forecast
+        print("  Computing HAR-RV forecast...")
+        underlying = compute_har_forecast_series(underlying)
+        n_har = underlying["har_forecast_20d"].notna().sum()
+        print(f"  {n_har} HAR-RV forecasts computed")
+
+        # 2c. HAR-RV + Regime forecast
+        print("  Computing HAR-RV+Regime forecast...")
+        rv_clean = underlying.dropna(subset=["rv_20d"]).copy()
+        if len(rv_clean) > 100:
+            states, _ = classify_vol_regime(rv_clean["rv_20d"], n_states=4)
+            underlying = compute_har_regime_forecast_series(underlying, states)
+            n_hr = underlying["har_regime_forecast_20d"].notna().sum()
+        else:
+            n_hr = 0
+            underlying["har_regime_forecast_20d"] = np.nan
+        print(f"  {n_hr} HAR-RV+Regime forecasts computed")
 
         # 3a. Load IVX (implied volatility index) data
         print("  Loading IVX implied volatility index...")
