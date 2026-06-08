@@ -1,169 +1,919 @@
 {
   "study": "Options Volatility Engine",
-  "generated_at": "2026-06-07T23:35:34.578653",
+  "generated_at": "2026-06-07T23:54:00.104767",
   "symbols": [
-    "PETR4",
-    "VALE3",
-    "ITUB4",
-    "BBDC4",
-    "BBAS3",
-    "WEGE3",
     "ABEV3",
+    "ASAI3",
+    "AZUL4",
+    "B3SA3",
+    "BBAS3",
+    "BBDC4",
+    "BPAC11",
+    "BRFS3",
+    "CCRO3",
+    "CMIG4",
+    "COGN3",
+    "CPLE6",
+    "CRFB3",
+    "CSNA3",
+    "CVCB3",
+    "ELET3",
+    "EMBR3",
+    "ENEV3",
+    "ENGI11",
+    "EQTL3",
+    "FLRY3",
+    "GGBR4",
+    "GOLL4",
+    "HAPV3",
+    "ITUB4",
+    "JBSS3",
+    "KLBN11",
+    "LREN3",
+    "MGLU3",
+    "MRFG3",
+    "NEOE3",
+    "ODPV3",
+    "PCAR3",
+    "PETR4",
+    "PRIO3",
+    "RADL3",
+    "RAIL3",
+    "RDOR3",
     "RENT3",
+    "SANB11",
     "SUZB3",
-    "GGBR4"
+    "TIMS3",
+    "TOTS3",
+    "UGPA3",
+    "VALE3",
+    "VBBR3",
+    "VIIA3",
+    "VIVT3",
+    "WEGE3",
+    "YDUQS3"
   ],
   "seed": 42,
   "risk_free_rate": 0.1475,
   "garch_window": 504,
   "rv_window": 20,
   "results": {
-    "PETR4": {
+    "ABEV3": {
       "oplab": {
-        "n_options": 235,
-        "n_valid_iv": 235
+        "n_options": 52,
+        "n_valid_iv": 52
       },
       "study1": {
-        "symbol": "PETR4",
+        "symbol": "ABEV3",
+        "n_obs": 220,
+        "mean_iv": 0.2479536161894696,
+        "mean_garch_forecast": 0.22224536713711437,
+        "mean_rv": 0.23608119606103228,
+        "mean_vrp_iv_garch": 0.02570824905235518,
+        "mean_vrp_iv_rv": 0.011872420128437339,
+        "vrp_positive_pct": 77.72727272727272,
+        "long_vol_n": 14,
+        "long_vol_mean_return": 0.021102592802487403,
+        "short_vol_n": 68,
+        "short_vol_mean_return": 0.015519243086430741,
+        "signal_hit_rate": 0.2602739726027397
+      },
+      "study2": {
+        "symbol": "ABEV3",
+        "decile_0_vrp": -0.06846723690153299,
+        "decile_9_vrp": 0.0977169703769072,
+        "decile_0_future_rv": 0.16421891946492753,
+        "decile_9_future_rv": 0.30022532286181064,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "ABEV3",
+        "regime_low_vrp": 0.032354132622429754,
+        "regime_medium_vrp": 0.037363493022632574,
+        "regime_high_vrp": 0.026823095089096458,
+        "regime_extreme_vrp": -0.06335047296887884
+      },
+      "forecast_comp": {
+        "symbol": "ABEV3",
+        "n_obs": 200,
+        "ivx_mae": 0.0668852459792528,
+        "garch_mae": 0.060727294927857806,
+        "combined_mae": 0.05951642144383408,
+        "ivx_rmse": 0.10378181016170336,
+        "garch_rmse": 0.11392836531989271,
+        "combined_rmse": 0.1062112377478309,
+        "ivx_spearman": 0.45360384009600246,
+        "garch_spearman": -0.06602865071626793,
+        "combined_spearman": 0.38301957548938725,
+        "ivx_pearson": 0.32534196636339896,
+        "garch_pearson": -0.12044654287181669,
+        "combined_pearson": 0.2926187960815163
+      },
+      "study4": {
+        "symbol": "ABEV3",
+        "atm_iv": 0.24858420666967032,
+        "otm_put_iv": 0.2741926716184514,
+        "otm_call_iv": 0.24865634958254837,
+        "put_skew": 0.02560846494878108,
+        "call_skew": 7.214291287804819e-05,
+        "n_options": 52
+      }
+    },
+    "ASAI3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "ASAI3",
+        "n_obs": 221,
+        "mean_iv": 0.427783112471542,
+        "mean_garch_forecast": 0.45546281866764293,
+        "mean_rv": 0.4601553586427672,
+        "mean_vrp_iv_garch": -0.027679706196101,
+        "mean_vrp_iv_rv": -0.032372246171225194,
+        "vrp_positive_pct": 24.8868778280543,
+        "long_vol_n": 69,
+        "long_vol_mean_return": 0.009799119968442672,
+        "short_vol_n": 6,
+        "short_vol_mean_return": 0.09238309363037249,
+        "signal_hit_rate": 0.22727272727272727
+      },
+      "study2": {
+        "symbol": "ASAI3",
+        "decile_0_vrp": -0.1098810556477409,
+        "decile_9_vrp": 0.053674359062920396,
+        "decile_0_future_rv": 0.42522609792565275,
+        "decile_9_future_rv": 0.49777873146556534,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "ASAI3",
+        "regime_low_vrp": 0.04210926835687352,
+        "regime_medium_vrp": -0.0023680715401509594,
+        "regime_high_vrp": -0.0431527209064833,
+        "regime_extreme_vrp": -0.038041842531317864
+      },
+      "forecast_comp": {
+        "symbol": "ASAI3",
+        "n_obs": 201,
+        "ivx_mae": 0.06947410408375783,
+        "garch_mae": 0.07379676470165095,
+        "combined_mae": 0.06873913989892638,
+        "ivx_rmse": 0.09241021668064779,
+        "garch_rmse": 0.08949865086875303,
+        "combined_rmse": 0.08749043162257815,
+        "ivx_spearman": 0.228145411556081,
+        "garch_spearman": 0.16851337372543224,
+        "combined_spearman": 0.193375203191961,
+        "ivx_pearson": 0.2636793850371598,
+        "garch_pearson": 0.14168766124711507,
+        "combined_pearson": 0.24260261752363935
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "AZUL4": {},
+    "B3SA3": {},
+    "BBAS3": {
+      "oplab": {
+        "n_options": 102,
+        "n_valid_iv": 102
+      },
+      "study1": {
+        "symbol": "BBAS3",
         "n_obs": 225,
-        "mean_iv": 0.27141621331074695,
-        "mean_garch_forecast": 0.2481411568029945,
-        "mean_rv": 0.2352317954886993,
-        "mean_vrp_iv_garch": 0.023275056507752533,
-        "mean_vrp_iv_rv": 0.03618441782204773,
-        "vrp_positive_pct": 45.33333333333333,
+        "mean_iv": 0.30683805894014526,
+        "mean_garch_forecast": 0.2804852296290091,
+        "mean_rv": 0.28404842737722863,
+        "mean_vrp_iv_garch": 0.026352829311136097,
+        "mean_vrp_iv_rv": 0.02278963156291662,
+        "vrp_positive_pct": 58.22222222222222,
         "long_vol_n": 20,
-        "long_vol_mean_return": 0.022745956053330414,
-        "short_vol_n": 73,
-        "short_vol_mean_return": 0.003162995394642711,
+        "long_vol_mean_return": 0.029358176489863795,
+        "short_vol_n": 60,
+        "short_vol_mean_return": 0.017257096026682066,
+        "signal_hit_rate": 0.21875
+      },
+      "study2": {
+        "symbol": "BBAS3",
+        "decile_0_vrp": -0.06369294640211444,
+        "decile_9_vrp": 0.19358381773948757,
+        "decile_0_future_rv": 0.3060106005840831,
+        "decile_9_future_rv": 0.3860221779300195,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "BBAS3",
+        "regime_low_vrp": null,
+        "regime_medium_vrp": 0.05226036190440994,
+        "regime_high_vrp": 0.010043067770996004,
+        "regime_extreme_vrp": 0.04827659684339538
+      },
+      "forecast_comp": {
+        "symbol": "BBAS3",
+        "n_obs": 205,
+        "ivx_mae": 0.061597196724988396,
+        "garch_mae": 0.06027635813160758,
+        "combined_mae": 0.05407100866939061,
+        "ivx_rmse": 0.07616162904590602,
+        "garch_rmse": 0.07938434775328361,
+        "combined_rmse": 0.06602682165528397,
+        "ivx_spearman": 0.23945898510955407,
+        "garch_spearman": -0.11645470880751067,
+        "combined_spearman": 0.15011352397932887,
+        "ivx_pearson": 0.31807910088580466,
+        "garch_pearson": -0.17223498057049502,
+        "combined_pearson": 0.21979941033055722
+      },
+      "study4": {
+        "symbol": "BBAS3",
+        "atm_iv": 0.27686250115440103,
+        "otm_put_iv": 0.2704656408122294,
+        "otm_call_iv": 0.23152003747267133,
+        "put_skew": -0.006396860342171629,
+        "call_skew": -0.0453424636817297,
+        "n_options": 102
+      }
+    },
+    "BBDC4": {
+      "oplab": {
+        "n_options": 67,
+        "n_valid_iv": 67
+      },
+      "study1": {
+        "symbol": "BBDC4",
+        "n_obs": 221,
+        "mean_iv": 0.28090174734069734,
+        "mean_garch_forecast": 0.2987836246636261,
+        "mean_rv": 0.24644678262673708,
+        "mean_vrp_iv_garch": -0.01788187732292869,
+        "mean_vrp_iv_rv": 0.034454964713960236,
+        "vrp_positive_pct": 28.50678733031674,
+        "long_vol_n": 50,
+        "long_vol_mean_return": 0.010441415669112027,
+        "short_vol_n": 18,
+        "short_vol_mean_return": 0.03189972932904592,
+        "signal_hit_rate": 0.21363636363636362
+      },
+      "study2": {
+        "symbol": "BBDC4",
+        "decile_0_vrp": -0.08650535071056664,
+        "decile_9_vrp": 0.06818555581852678,
+        "decile_0_future_rv": 0.23723584419466698,
+        "decile_9_future_rv": 0.2873643045612251,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "BBDC4",
+        "regime_low_vrp": null,
+        "regime_medium_vrp": -0.03262848425577315,
+        "regime_high_vrp": 0.002795430224211922,
+        "regime_extreme_vrp": null
+      },
+      "forecast_comp": {
+        "symbol": "BBDC4",
+        "n_obs": 201,
+        "ivx_mae": 0.050353665732597294,
+        "garch_mae": 0.0585338953280789,
+        "combined_mae": 0.05131062505642615,
+        "ivx_rmse": 0.06137829788070569,
+        "garch_rmse": 0.07259411272306449,
+        "combined_rmse": 0.0625358300718537,
+        "ivx_spearman": 0.27687897147923746,
+        "garch_spearman": -0.36961873799320233,
+        "combined_spearman": 0.1541126052903798,
+        "ivx_pearson": 0.2730020639124278,
+        "garch_pearson": -0.32865584669108144,
+        "combined_pearson": 0.16664855919635757
+      },
+      "study4": {
+        "symbol": "BBDC4",
+        "atm_iv": 0.28717568412043526,
+        "otm_put_iv": 0.29630308561197893,
+        "otm_call_iv": 0.2623869412537257,
+        "put_skew": 0.009127401491543674,
+        "call_skew": -0.024788742866709568,
+        "n_options": 67
+      }
+    },
+    "BPAC11": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "BPAC11",
+        "n_obs": 225,
+        "mean_iv": 0.3087110486222992,
+        "mean_garch_forecast": 0.2914495164482702,
+        "mean_rv": 0.32007986768968605,
+        "mean_vrp_iv_garch": 0.017261532174028975,
+        "mean_vrp_iv_rv": -0.011368819067386845,
+        "vrp_positive_pct": 64.88888888888889,
+        "long_vol_n": 2,
+        "long_vol_mean_return": 0.07920329965212956,
+        "short_vol_n": 36,
+        "short_vol_mean_return": 0.0167783432278023,
+        "signal_hit_rate": 0.09821428571428571
+      },
+      "study2": {
+        "symbol": "BPAC11",
+        "decile_0_vrp": -0.03452764818403425,
+        "decile_9_vrp": 0.09543116920021616,
+        "decile_0_future_rv": 0.3010580086012688,
+        "decile_9_future_rv": 0.3820099563634316,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "BPAC11",
+        "regime_low_vrp": 0.004479879544932142,
+        "regime_medium_vrp": 0.01365014343244053,
+        "regime_high_vrp": 0.0511719203121853,
+        "regime_extreme_vrp": 0.013849905632146556
+      },
+      "forecast_comp": {
+        "symbol": "BPAC11",
+        "n_obs": 205,
+        "ivx_mae": 0.07621135147514403,
+        "garch_mae": 0.08145893575285858,
+        "combined_mae": 0.07590473811477483,
+        "ivx_rmse": 0.09763358819468582,
+        "garch_rmse": 0.10430724171253135,
+        "combined_rmse": 0.0987299035138707,
+        "ivx_spearman": 0.2772938112019612,
+        "garch_spearman": -0.0289548829240434,
+        "combined_spearman": 0.22627488125252468,
+        "ivx_pearson": 0.25226541435146405,
+        "garch_pearson": 0.036111336044911964,
+        "combined_pearson": 0.21583461000442247
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "BRFS3": {},
+    "CCRO3": {},
+    "CMIG4": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "CMIG4",
+        "n_obs": 221,
+        "mean_iv": 0.22859008647751242,
+        "mean_garch_forecast": 0.24551598536739766,
+        "mean_rv": 0.22727532179567742,
+        "mean_vrp_iv_garch": -0.016925898889885244,
+        "mean_vrp_iv_rv": 0.0013147646818349916,
+        "vrp_positive_pct": 23.981900452488688,
+        "long_vol_n": 27,
+        "long_vol_mean_return": 0.012142826971852646,
+        "short_vol_n": 4,
+        "short_vol_mean_return": 0.05279291393351389,
+        "signal_hit_rate": 0.11818181818181818
+      },
+      "study2": {
+        "symbol": "CMIG4",
+        "decile_0_vrp": -0.05740320349931784,
+        "decile_9_vrp": 0.05237324885417071,
+        "decile_0_future_rv": 0.19601547248894352,
+        "decile_9_future_rv": 0.22281400494388345,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "CMIG4",
+        "regime_low_vrp": -0.03655549934915715,
+        "regime_medium_vrp": -0.014243035285392372,
+        "regime_high_vrp": 0.004474193897917222,
+        "regime_extreme_vrp": null
+      },
+      "forecast_comp": {
+        "symbol": "CMIG4",
+        "n_obs": 201,
+        "ivx_mae": 0.0465377824774765,
+        "garch_mae": 0.04445718287505635,
+        "combined_mae": 0.04395810406602559,
+        "ivx_rmse": 0.058228027352174035,
+        "garch_rmse": 0.05495903676920639,
+        "combined_rmse": 0.05325362343422819,
+        "ivx_spearman": 0.0496290823112162,
+        "garch_spearman": -0.24687010492093983,
+        "combined_spearman": -0.03253288015368701,
+        "ivx_pearson": 0.005649885059018632,
+        "garch_pearson": -0.15131934021871804,
+        "combined_pearson": -0.03428092441416284
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "COGN3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "COGN3",
+        "n_obs": 221,
+        "mean_iv": 0.44873602160860837,
+        "mean_garch_forecast": 0.5031164482567885,
+        "mean_rv": 0.43321283843349073,
+        "mean_vrp_iv_garch": -0.05438042664818004,
+        "mean_vrp_iv_rv": 0.015523183175117757,
+        "vrp_positive_pct": 19.457013574660635,
+        "long_vol_n": 129,
+        "long_vol_mean_return": 0.014725265435881247,
+        "short_vol_n": 5,
+        "short_vol_mean_return": 0.1966298287389789,
+        "signal_hit_rate": 0.34545454545454546
+      },
+      "study2": {
+        "symbol": "COGN3",
+        "decile_0_vrp": -0.137289315732907,
+        "decile_9_vrp": 0.06556046759911009,
+        "decile_0_future_rv": 0.47269148969096625,
+        "decile_9_future_rv": 0.4557147799678008,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "COGN3",
+        "regime_low_vrp": -0.04574464907599316,
+        "regime_medium_vrp": -0.06828794240539535,
+        "regime_high_vrp": -0.05245973699338932,
+        "regime_extreme_vrp": null
+      },
+      "forecast_comp": {
+        "symbol": "COGN3",
+        "n_obs": 201,
+        "ivx_mae": 0.07873090700701053,
+        "garch_mae": 0.07871585513483605,
+        "combined_mae": 0.07382145976438712,
+        "ivx_rmse": 0.10330177539362488,
+        "garch_rmse": 0.1006370418974631,
+        "combined_rmse": 0.09121786202630335,
+        "ivx_spearman": -0.20643571982996822,
+        "garch_spearman": -0.3079593276043241,
+        "combined_spearman": -0.28331841411203873,
+        "ivx_pearson": -0.12705155837007323,
+        "garch_pearson": -0.32424184453269933,
+        "combined_pearson": -0.23237273569336656
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "CPLE6": {},
+    "CRFB3": {},
+    "CSNA3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "CSNA3",
+        "n_obs": 221,
+        "mean_iv": 0.45571962438472363,
+        "mean_garch_forecast": 0.461553980912741,
+        "mean_rv": 0.4783683206683105,
+        "mean_vrp_iv_garch": -0.005834356528017387,
+        "mean_vrp_iv_rv": -0.022648696283586893,
+        "vrp_positive_pct": 40.27149321266968,
+        "long_vol_n": 55,
+        "long_vol_mean_return": 0.01981217307469029,
+        "short_vol_n": 39,
+        "short_vol_mean_return": 0.01941821843864572,
+        "signal_hit_rate": 0.2863636363636364
+      },
+      "study2": {
+        "symbol": "CSNA3",
+        "decile_0_vrp": -0.0892013436603193,
+        "decile_9_vrp": 0.11576130198162854,
+        "decile_0_future_rv": 0.41627884918062036,
+        "decile_9_future_rv": 0.5980033895147435,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "CSNA3",
+        "regime_low_vrp": null,
+        "regime_medium_vrp": -0.02900670431598341,
+        "regime_high_vrp": -0.024705671288175326,
+        "regime_extreme_vrp": 0.051782153540218714
+      },
+      "forecast_comp": {
+        "symbol": "CSNA3",
+        "n_obs": 201,
+        "ivx_mae": 0.09698578986430077,
+        "garch_mae": 0.09992970777568529,
+        "combined_mae": 0.09585067970510945,
+        "ivx_rmse": 0.12797298804932108,
+        "garch_rmse": 0.13618441263787262,
+        "combined_rmse": 0.12841432261840216,
+        "ivx_spearman": 0.38870252696911484,
+        "garch_spearman": 0.11216048470518694,
+        "combined_spearman": 0.28190631003398847,
+        "ivx_pearson": 0.3938171654364377,
+        "garch_pearson": 0.12062603640623866,
+        "combined_pearson": 0.3261443306348695
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "CVCB3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "CVCB3",
+        "n_obs": 225,
+        "mean_iv": 0.5840484798339665,
+        "mean_garch_forecast": 0.6279205900833357,
+        "mean_rv": 0.5755572342558087,
+        "mean_vrp_iv_garch": -0.04387211024936914,
+        "mean_vrp_iv_rv": 0.008491245578157832,
+        "vrp_positive_pct": 27.111111111111114,
+        "long_vol_n": 141,
+        "long_vol_mean_return": 0.015856496001878453,
+        "short_vol_n": 44,
+        "short_vol_mean_return": 0.05537383407094383,
+        "signal_hit_rate": 0.49107142857142855
+      },
+      "study2": {
+        "symbol": "CVCB3",
+        "decile_0_vrp": -0.20643553053505312,
+        "decile_9_vrp": 0.31059019921582537,
+        "decile_0_future_rv": 0.4666916964388129,
+        "decile_9_future_rv": 0.7127541669232899,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "CVCB3",
+        "regime_low_vrp": -0.06878010940445994,
+        "regime_medium_vrp": -0.0071173186167397895,
+        "regime_high_vrp": -0.010533031054161672,
+        "regime_extreme_vrp": 0.011039852651857406
+      },
+      "forecast_comp": {
+        "symbol": "CVCB3",
+        "n_obs": 205,
+        "ivx_mae": 0.20400500372624894,
+        "garch_mae": 0.224140690817455,
+        "combined_mae": 0.20764775489758044,
+        "ivx_rmse": 0.2574340325002853,
+        "garch_rmse": 0.2559162517531528,
+        "combined_rmse": 0.24363820512201653,
+        "ivx_spearman": 0.34689469912302373,
+        "garch_spearman": -0.10040680615038174,
+        "combined_spearman": 0.23278630523769434,
+        "ivx_pearson": 0.2502284972049605,
+        "garch_pearson": -0.07825257011825977,
+        "combined_pearson": 0.1694258879904802
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "ELET3": {},
+    "EMBR3": {},
+    "ENEV3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "ENEV3",
+        "n_obs": 225,
+        "mean_iv": 0.34150139660411727,
+        "mean_garch_forecast": 0.31019847789804367,
+        "mean_rv": 0.30284283039723725,
+        "mean_vrp_iv_garch": 0.03130291870607359,
+        "mean_vrp_iv_rv": 0.03865856620687999,
+        "vrp_positive_pct": 77.77777777777779,
+        "long_vol_n": 24,
+        "long_vol_mean_return": 0.002552175598265693,
+        "short_vol_n": 68,
+        "short_vol_mean_return": 0.011861082188757144,
         "signal_hit_rate": 0.24107142857142858
       },
       "study2": {
-        "symbol": "PETR4",
-        "decile_0_vrp": -0.059759556602104746,
-        "decile_9_vrp": 0.1591616413348132,
-        "decile_0_future_rv": 0.19394137770369843,
-        "decile_9_future_rv": 0.3512408480141593,
+        "symbol": "ENEV3",
+        "decile_0_vrp": -0.18497844345030295,
+        "decile_9_vrp": 0.23467892150077257,
+        "decile_0_future_rv": 0.25713773274148943,
+        "decile_9_future_rv": 0.543904625796321,
         "monotonic": 0.0
       },
       "study3": {
-        "symbol": "PETR4",
-        "regime_low_vrp": -0.022981073252518688,
-        "regime_medium_vrp": 0.05967790455074651,
-        "regime_high_vrp": null,
-        "regime_extreme_vrp": 0.11194261737326117
+        "symbol": "ENEV3",
+        "regime_low_vrp": 0.030434717184740202,
+        "regime_medium_vrp": 0.07211126157389769,
+        "regime_high_vrp": 0.06744246547356789,
+        "regime_extreme_vrp": -0.023059141057941133
       },
       "forecast_comp": {
-        "symbol": "PETR4",
+        "symbol": "ENEV3",
         "n_obs": 205,
-        "ivx_mae": 0.047463277212736826,
-        "garch_mae": 0.06325418466264385,
-        "combined_mae": 0.04843696540686943,
-        "ivx_rmse": 0.05784585992978002,
-        "garch_rmse": 0.0789695273441529,
-        "combined_rmse": 0.058458535478554105,
-        "ivx_spearman": 0.6361410204621748,
-        "garch_spearman": -0.5975331169645219,
-        "combined_spearman": 0.5783928347564458,
-        "ivx_pearson": 0.7357894876136015,
-        "garch_pearson": -0.6132230616099048,
-        "combined_pearson": 0.6892799879690756
-      },
-      "study5": {
-        "n_trades": 7,
-        "total_gross_pnl": 1.21,
-        "total_cost": 0.17655,
-        "total_net_pnl": 1.0334499999999998,
-        "avg_hold_days": 1.5714285714285714,
-        "win_rate": 0.7142857142857143,
-        "sharpe": -3.8709110441807875,
-        "max_drawdown": -0.6444000000000001,
-        "avg_return_per_trade": 0.14763571428571426,
-        "vrp_threshold": 0.2,
-        "cost_per_leg": 0.005
+        "ivx_mae": 0.07333229094559436,
+        "garch_mae": 0.10819192306410388,
+        "combined_mae": 0.08538727376261585,
+        "ivx_rmse": 0.09316216798153801,
+        "garch_rmse": 0.16019756227030044,
+        "combined_rmse": 0.11698753309182293,
+        "ivx_spearman": 0.5290008496886796,
+        "garch_spearman": 0.2181178699279854,
+        "combined_spearman": 0.387426000473597,
+        "ivx_pearson": 0.7743880874849516,
+        "garch_pearson": 0.2032010222226097,
+        "combined_pearson": 0.5619285511734136
       },
       "study4": {
-        "symbol": "PETR4",
-        "atm_iv": 0.35107217014246617,
-        "otm_put_iv": 0.3609089900349757,
-        "otm_call_iv": 0.34971686659090584,
-        "put_skew": 0.009836819892509507,
-        "call_skew": -0.0013553035515603273,
-        "n_options": 235
+        "error": "No OpLab IV data"
       }
     },
-    "VALE3": {
+    "ENGI11": {
       "oplab": {
-        "n_options": 161,
-        "n_valid_iv": 161
+        "n_options": 0,
+        "n_valid_iv": 0
       },
       "study1": {
-        "symbol": "VALE3",
-        "n_obs": 221,
-        "mean_iv": 0.24260607067214035,
-        "mean_garch_forecast": 0.24276359783306675,
-        "mean_rv": 0.229152356359181,
-        "mean_vrp_iv_garch": -0.00015752716092633202,
-        "mean_vrp_iv_rv": 0.013453714312959381,
-        "vrp_positive_pct": 42.98642533936652,
-        "long_vol_n": 14,
-        "long_vol_mean_return": 0.003914590718268286,
-        "short_vol_n": 39,
-        "short_vol_mean_return": 0.010609119482214832,
-        "signal_hit_rate": 0.14545454545454545
+        "symbol": "ENGI11",
+        "n_obs": 226,
+        "mean_iv": 0.28073108102105193,
+        "mean_garch_forecast": 0.25212812587281314,
+        "mean_rv": 0.25514879225540915,
+        "mean_vrp_iv_garch": 0.028602955148238806,
+        "mean_vrp_iv_rv": 0.025582288765642777,
+        "vrp_positive_pct": 84.070796460177,
+        "long_vol_n": 1,
+        "long_vol_mean_return": 0.036158273058898294,
+        "short_vol_n": 36,
+        "short_vol_mean_return": 0.046105700250256364,
+        "signal_hit_rate": 0.1288888888888889
       },
       "study2": {
-        "symbol": "VALE3",
-        "decile_0_vrp": -0.05801187355500622,
-        "decile_9_vrp": 0.07731955052278966,
-        "decile_0_future_rv": 0.1442864908075784,
-        "decile_9_future_rv": 0.28619507280881756,
+        "symbol": "ENGI11",
+        "decile_0_vrp": -0.014532439128128318,
+        "decile_9_vrp": 0.11813136851462247,
+        "decile_0_future_rv": 0.27675829396337,
+        "decile_9_future_rv": 0.3147393300203541,
         "monotonic": 0.0
       },
       "study3": {
-        "symbol": "VALE3",
-        "regime_low_vrp": -0.021831400093759654,
-        "regime_medium_vrp": 0.023424194648362488,
-        "regime_high_vrp": 0.004705821154134001,
-        "regime_extreme_vrp": 0.05508307340370053
+        "symbol": "ENGI11",
+        "regime_low_vrp": 0.02083946547243726,
+        "regime_medium_vrp": 0.037158189042968054,
+        "regime_high_vrp": 0.028952497257408845,
+        "regime_extreme_vrp": 0.023559949045576435
       },
       "forecast_comp": {
-        "symbol": "VALE3",
-        "n_obs": 201,
-        "ivx_mae": 0.060122301854237274,
-        "garch_mae": 0.07340831120519688,
-        "combined_mae": 0.06465848109595337,
-        "ivx_rmse": 0.07139480767225345,
-        "garch_rmse": 0.08552393575045884,
-        "combined_rmse": 0.0761347057664003,
-        "ivx_spearman": 0.6400088665582977,
-        "garch_spearman": 0.324545588887247,
-        "combined_spearman": 0.594294369735481,
-        "ivx_pearson": 0.6171823322900648,
-        "garch_pearson": 0.2893326695098557,
-        "combined_pearson": 0.5706930298736862
-      },
-      "study5": {
-        "n_trades": 14,
-        "total_gross_pnl": 2.5300000000000002,
-        "total_cost": 0.66225,
-        "total_net_pnl": 1.8677500000000002,
-        "avg_hold_days": 1.2142857142857142,
-        "win_rate": 0.5,
-        "sharpe": 4.29304451171648,
-        "max_drawdown": -0.8904999999999992,
-        "avg_return_per_trade": 0.1334107142857143,
-        "vrp_threshold": 0.2,
-        "cost_per_leg": 0.005
+        "symbol": "ENGI11",
+        "n_obs": 206,
+        "ivx_mae": 0.05215431657698758,
+        "garch_mae": 0.04512536129041338,
+        "combined_mae": 0.04557750163000795,
+        "ivx_rmse": 0.0781277460073434,
+        "garch_rmse": 0.05679872634373545,
+        "combined_rmse": 0.05921329273149646,
+        "ivx_spearman": 0.2136354744720938,
+        "garch_spearman": 0.07940711150463131,
+        "combined_spearman": 0.2076352067868505,
+        "ivx_pearson": 0.21796199730900231,
+        "garch_pearson": 0.04754532820731728,
+        "combined_pearson": 0.21367223646370767
       },
       "study4": {
-        "symbol": "VALE3",
-        "atm_iv": 0.3005679732264363,
-        "otm_put_iv": 0.3859964609830034,
-        "otm_call_iv": 0.3342894262954235,
-        "put_skew": 0.08542848775656708,
-        "call_skew": 0.03372145306898722,
-        "n_options": 161
+        "error": "No OpLab IV data"
+      }
+    },
+    "EQTL3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "EQTL3",
+        "n_obs": 221,
+        "mean_iv": 0.256071647503963,
+        "mean_garch_forecast": 0.23185916895298594,
+        "mean_rv": 0.24064205825809518,
+        "mean_vrp_iv_garch": 0.024212478550977024,
+        "mean_vrp_iv_rv": 0.015429589245867797,
+        "vrp_positive_pct": 82.80542986425338,
+        "long_vol_n": 1,
+        "long_vol_mean_return": 0.07947129869629743,
+        "short_vol_n": 30,
+        "short_vol_mean_return": 0.020740748639774872,
+        "signal_hit_rate": 0.09545454545454546
+      },
+      "study2": {
+        "symbol": "EQTL3",
+        "decile_0_vrp": -0.01762530755957403,
+        "decile_9_vrp": 0.0923314653746652,
+        "decile_0_future_rv": 0.2334023180904384,
+        "decile_9_future_rv": 0.3171036539439981,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "EQTL3",
+        "regime_low_vrp": 0.023809847363099837,
+        "regime_medium_vrp": 0.021410988217115443,
+        "regime_high_vrp": 0.027935028266648808,
+        "regime_extreme_vrp": 0.02220941822725761
+      },
+      "forecast_comp": {
+        "symbol": "EQTL3",
+        "n_obs": 201,
+        "ivx_mae": 0.04706168075236602,
+        "garch_mae": 0.050961513376729134,
+        "combined_mae": 0.046322872617249385,
+        "ivx_rmse": 0.059157458301256044,
+        "garch_rmse": 0.06492657124518615,
+        "combined_rmse": 0.058509409839124185,
+        "ivx_spearman": 0.4410625092359982,
+        "garch_spearman": 0.29636766661740804,
+        "combined_spearman": 0.425557854292892,
+        "ivx_pearson": 0.4701883923881734,
+        "garch_pearson": 0.28443533324250936,
+        "combined_pearson": 0.45850362011457807
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "FLRY3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "FLRY3",
+        "n_obs": 221,
+        "mean_iv": 0.28464298907166036,
+        "mean_garch_forecast": 0.28988784906586396,
+        "mean_rv": 0.2759727485347062,
+        "mean_vrp_iv_garch": -0.005244859994203605,
+        "mean_vrp_iv_rv": 0.008670240536954147,
+        "vrp_positive_pct": 46.15384615384615,
+        "long_vol_n": 26,
+        "long_vol_mean_return": 0.021199829182400796,
+        "short_vol_n": 17,
+        "short_vol_mean_return": 0.025849131125940526,
+        "signal_hit_rate": 0.1590909090909091
+      },
+      "study2": {
+        "symbol": "FLRY3",
+        "decile_0_vrp": -0.06676734885269807,
+        "decile_9_vrp": 0.061753574630953344,
+        "decile_0_future_rv": 0.25894814005790845,
+        "decile_9_future_rv": 0.31863357992011654,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "FLRY3",
+        "regime_low_vrp": -0.004428238437284869,
+        "regime_medium_vrp": -0.00800291120701705,
+        "regime_high_vrp": -0.008757573527945288,
+        "regime_extreme_vrp": 0.014438519566415672
+      },
+      "forecast_comp": {
+        "symbol": "FLRY3",
+        "n_obs": 201,
+        "ivx_mae": 0.06700069170287418,
+        "garch_mae": 0.07003756153637385,
+        "combined_mae": 0.06730693807059981,
+        "ivx_rmse": 0.09320503640623594,
+        "garch_rmse": 0.1010959138404936,
+        "combined_rmse": 0.09518640604239482,
+        "ivx_spearman": 0.010430031930705578,
+        "garch_spearman": -0.38108038313892917,
+        "combined_spearman": -0.16276199304049915,
+        "ivx_pearson": -0.0980633479274436,
+        "garch_pearson": -0.5474282069862912,
+        "combined_pearson": -0.3923898769570368
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "GGBR4": {
+      "oplab": {
+        "n_options": 40,
+        "n_valid_iv": 40
+      },
+      "study1": {
+        "symbol": "GGBR4",
+        "n_obs": 227,
+        "mean_iv": 0.28903276804084344,
+        "mean_garch_forecast": 0.2800796507558483,
+        "mean_rv": 0.24666924640803628,
+        "mean_vrp_iv_garch": 0.00895311728499514,
+        "mean_vrp_iv_rv": 0.042363521632807134,
+        "vrp_positive_pct": 50.22026431718062,
+        "long_vol_n": 7,
+        "long_vol_mean_return": 0.020138918649158965,
+        "short_vol_n": 33,
+        "short_vol_mean_return": 0.026796982685350305,
+        "signal_hit_rate": 0.13716814159292035
+      },
+      "study2": {
+        "symbol": "GGBR4",
+        "decile_0_vrp": -0.0451475258608668,
+        "decile_9_vrp": 0.09492457265165245,
+        "decile_0_future_rv": 0.21061209742878884,
+        "decile_9_future_rv": 0.2633825865755668,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "GGBR4",
+        "regime_low_vrp": -0.0037801355952722573,
+        "regime_medium_vrp": 0.026613124367795594,
+        "regime_high_vrp": 0.011802582802418318,
+        "regime_extreme_vrp": null
+      },
+      "forecast_comp": {
+        "symbol": "GGBR4",
+        "n_obs": 207,
+        "ivx_mae": 0.05517482139714002,
+        "garch_mae": 0.04659187098671723,
+        "combined_mae": 0.04939429588289932,
+        "ivx_rmse": 0.07062938385318045,
+        "garch_rmse": 0.059104487869664525,
+        "combined_rmse": 0.0613803620730646,
+        "ivx_spearman": 0.348409206524445,
+        "garch_spearman": -0.21250040588368996,
+        "combined_spearman": 0.3256553668647379,
+        "ivx_pearson": 0.25899292765933185,
+        "garch_pearson": -0.13900575031000015,
+        "combined_pearson": 0.2421811184592201
+      },
+      "study4": {
+        "symbol": "GGBR4",
+        "atm_iv": 0.295167143424988,
+        "otm_put_iv": 0.38798652316471943,
+        "otm_call_iv": 0.3269626827137332,
+        "put_skew": 0.09281937973973142,
+        "call_skew": 0.03179553928874518,
+        "n_options": 40
+      }
+    },
+    "GOLL4": {},
+    "HAPV3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "HAPV3",
+        "n_obs": 221,
+        "mean_iv": 0.5706789078416569,
+        "mean_garch_forecast": 1.0900579031097006,
+        "mean_rv": 0.6326523850126623,
+        "mean_vrp_iv_garch": -0.519378995268044,
+        "mean_vrp_iv_rv": -0.06197347717100549,
+        "vrp_positive_pct": 32.126696832579185,
+        "long_vol_n": 136,
+        "long_vol_mean_return": -0.000884278033657034,
+        "short_vol_n": 59,
+        "short_vol_mean_return": -0.0021455196269908198,
+        "signal_hit_rate": 0.43636363636363634
+      },
+      "study2": {
+        "symbol": "HAPV3",
+        "decile_0_vrp": -1.5366937916750327,
+        "decile_9_vrp": 0.18416108163311654,
+        "decile_0_future_rv": 0.5961588887944126,
+        "decile_9_future_rv": 1.3391547624449789,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "HAPV3",
+        "regime_low_vrp": 0.0015208627934236634,
+        "regime_medium_vrp": -0.5113416380645235,
+        "regime_high_vrp": -0.943757410994249,
+        "regime_extreme_vrp": -1.225636510994668
+      },
+      "forecast_comp": {
+        "symbol": "HAPV3",
+        "n_obs": 201,
+        "ivx_mae": 0.24599816542765995,
+        "garch_mae": 0.7155705891479895,
+        "combined_mae": 0.45666535256904905,
+        "ivx_rmse": 0.48647658537010835,
+        "garch_rmse": 1.0237809957786113,
+        "combined_rmse": 0.6698941466340665,
+        "ivx_spearman": 0.6155135215014039,
+        "garch_spearman": 0.27542781143786016,
+        "combined_spearman": 0.4736544997783361,
+        "ivx_pearson": 0.1463750414083966,
+        "garch_pearson": -0.04615800527873727,
+        "combined_pearson": -0.01866958649603385
+      },
+      "study4": {
+        "error": "No OpLab IV data"
       }
     },
     "ITUB4": {
@@ -240,248 +990,522 @@
         "n_options": 113
       }
     },
-    "BBDC4": {
+    "JBSS3": {},
+    "KLBN11": {
       "oplab": {
-        "n_options": 67,
-        "n_valid_iv": 67
+        "n_options": 0,
+        "n_valid_iv": 0
       },
       "study1": {
-        "symbol": "BBDC4",
-        "n_obs": 221,
-        "mean_iv": 0.28090174734069734,
-        "mean_garch_forecast": 0.2987836246636261,
-        "mean_rv": 0.24644678262673708,
-        "mean_vrp_iv_garch": -0.01788187732292869,
-        "mean_vrp_iv_rv": 0.034454964713960236,
-        "vrp_positive_pct": 28.50678733031674,
-        "long_vol_n": 50,
-        "long_vol_mean_return": 0.010441415669112027,
-        "short_vol_n": 18,
-        "short_vol_mean_return": 0.03189972932904592,
-        "signal_hit_rate": 0.21363636363636362
+        "symbol": "KLBN11",
+        "n_obs": 229,
+        "mean_iv": 0.21757704049267135,
+        "mean_garch_forecast": 0.20925403135467507,
+        "mean_rv": 0.2121783466227944,
+        "mean_vrp_iv_garch": 0.008323009137996235,
+        "mean_vrp_iv_rv": 0.0053986938698768975,
+        "vrp_positive_pct": 62.00873362445415,
+        "long_vol_n": 0,
+        "long_vol_mean_return": 0,
+        "short_vol_n": 10,
+        "short_vol_mean_return": 0.023317591528556815,
+        "signal_hit_rate": 0.03508771929824561
       },
       "study2": {
-        "symbol": "BBDC4",
-        "decile_0_vrp": -0.08650535071056664,
-        "decile_9_vrp": 0.06818555581852678,
-        "decile_0_future_rv": 0.23723584419466698,
-        "decile_9_future_rv": 0.2873643045612251,
+        "symbol": "KLBN11",
+        "decile_0_vrp": -0.03156651990960342,
+        "decile_9_vrp": 0.05150199531518463,
+        "decile_0_future_rv": 0.1850402474979769,
+        "decile_9_future_rv": 0.22807042606646363,
         "monotonic": 0.0
       },
       "study3": {
-        "symbol": "BBDC4",
-        "regime_low_vrp": null,
-        "regime_medium_vrp": -0.03262848425577315,
-        "regime_high_vrp": 0.002795430224211922,
+        "symbol": "KLBN11",
+        "regime_low_vrp": -0.006687406560843537,
+        "regime_medium_vrp": 0.008857305091446714,
+        "regime_high_vrp": 0.021694921684539084,
+        "regime_extreme_vrp": 0.023946449330376502
+      },
+      "forecast_comp": {
+        "symbol": "KLBN11",
+        "n_obs": 209,
+        "ivx_mae": 0.034182465976249646,
+        "garch_mae": 0.03331835333707304,
+        "combined_mae": 0.03196804439525916,
+        "ivx_rmse": 0.04342416248282512,
+        "garch_rmse": 0.04376485022425685,
+        "combined_rmse": 0.04182798403100337,
+        "ivx_spearman": 0.3216559756033441,
+        "garch_spearman": -0.1042404963457595,
+        "combined_spearman": 0.23345075976654925,
+        "ivx_pearson": 0.2873503057281972,
+        "garch_pearson": -0.09074578894796424,
+        "combined_pearson": 0.2018332266740875
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "LREN3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "LREN3",
+        "n_obs": 221,
+        "mean_iv": 0.39738064798518286,
+        "mean_garch_forecast": 0.42283239107249576,
+        "mean_rv": 0.3682041435435167,
+        "mean_vrp_iv_garch": -0.025451743087312885,
+        "mean_vrp_iv_rv": 0.029176504441666123,
+        "vrp_positive_pct": 22.624434389140273,
+        "long_vol_n": 70,
+        "long_vol_mean_return": 0.0110285644297693,
+        "short_vol_n": 15,
+        "short_vol_mean_return": 0.04172627506701458,
+        "signal_hit_rate": 0.24545454545454545
+      },
+      "study2": {
+        "symbol": "LREN3",
+        "decile_0_vrp": -0.08573555209379896,
+        "decile_9_vrp": 0.06512868841528618,
+        "decile_0_future_rv": 0.36554352561197767,
+        "decile_9_future_rv": 0.40962262991857706,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "LREN3",
+        "regime_low_vrp": -0.028947071833121396,
+        "regime_medium_vrp": -0.02778982577778156,
+        "regime_high_vrp": -0.020494370370192295,
+        "regime_extreme_vrp": -0.0076456482693629535
+      },
+      "forecast_comp": {
+        "symbol": "LREN3",
+        "n_obs": 201,
+        "ivx_mae": 0.05322918704483909,
+        "garch_mae": 0.06406849941559858,
+        "combined_mae": 0.05544265761676287,
+        "ivx_rmse": 0.07059362713200515,
+        "garch_rmse": 0.08131969030313126,
+        "combined_rmse": 0.07192423394659771,
+        "ivx_spearman": 0.2270755135215014,
+        "garch_spearman": -0.4656982414659377,
+        "combined_spearman": 0.14276636618885769,
+        "ivx_pearson": 0.18252885047617962,
+        "garch_pearson": -0.41174557788989996,
+        "combined_pearson": 0.10719097814786142
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "MGLU3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "MGLU3",
+        "n_obs": 221,
+        "mean_iv": 0.6183469361648526,
+        "mean_garch_forecast": 0.6268996836212662,
+        "mean_rv": 0.5461443982679571,
+        "mean_vrp_iv_garch": -0.008552747456413528,
+        "mean_vrp_iv_rv": 0.07220253789689557,
+        "vrp_positive_pct": 41.6289592760181,
+        "long_vol_n": 58,
+        "long_vol_mean_return": 0.015003524070861158,
+        "short_vol_n": 35,
+        "short_vol_mean_return": 0.030253194073027068,
+        "signal_hit_rate": 0.2772727272727273
+      },
+      "study2": {
+        "symbol": "MGLU3",
+        "decile_0_vrp": -0.1018450567555516,
+        "decile_9_vrp": 0.09977794733877401,
+        "decile_0_future_rv": 0.575409720750818,
+        "decile_9_future_rv": 0.5333590955254984,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "MGLU3",
+        "regime_low_vrp": -0.030407059738788787,
+        "regime_medium_vrp": 0.0055718623720521325,
+        "regime_high_vrp": 0.0504720592155111,
         "regime_extreme_vrp": null
       },
       "forecast_comp": {
-        "symbol": "BBDC4",
+        "symbol": "MGLU3",
         "n_obs": 201,
-        "ivx_mae": 0.050353665732597294,
-        "garch_mae": 0.0585338953280789,
-        "combined_mae": 0.05131062505642615,
-        "ivx_rmse": 0.06137829788070569,
-        "garch_rmse": 0.07259411272306449,
-        "combined_rmse": 0.0625358300718537,
-        "ivx_spearman": 0.27687897147923746,
-        "garch_spearman": -0.36961873799320233,
-        "combined_spearman": 0.1541126052903798,
-        "ivx_pearson": 0.2730020639124278,
-        "garch_pearson": -0.32865584669108144,
-        "combined_pearson": 0.16664855919635757
+        "ivx_mae": 0.10895590587474822,
+        "garch_mae": 0.0967577780006413,
+        "combined_mae": 0.10008001196019206,
+        "ivx_rmse": 0.13832934269071898,
+        "garch_rmse": 0.12339162478136245,
+        "combined_rmse": 0.12778678506196559,
+        "ivx_spearman": -0.13677109501994975,
+        "garch_spearman": -0.1690305896261268,
+        "combined_spearman": -0.11677700605881484,
+        "ivx_pearson": -0.150623786577655,
+        "garch_pearson": -0.0938484246550494,
+        "combined_pearson": -0.15853621221531458
       },
       "study4": {
-        "symbol": "BBDC4",
-        "atm_iv": 0.28717568412043526,
-        "otm_put_iv": 0.29630308561197893,
-        "otm_call_iv": 0.2623869412537257,
-        "put_skew": 0.009127401491543674,
-        "call_skew": -0.024788742866709568,
-        "n_options": 67
+        "error": "No OpLab IV data"
       }
     },
-    "BBAS3": {
+    "MRFG3": {},
+    "NEOE3": {},
+    "ODPV3": {},
+    "PCAR3": {
       "oplab": {
-        "n_options": 102,
-        "n_valid_iv": 102
+        "n_options": 0,
+        "n_valid_iv": 0
       },
       "study1": {
-        "symbol": "BBAS3",
-        "n_obs": 225,
-        "mean_iv": 0.30683805894014526,
-        "mean_garch_forecast": 0.2804852296290091,
-        "mean_rv": 0.28404842737722863,
-        "mean_vrp_iv_garch": 0.026352829311136097,
-        "mean_vrp_iv_rv": 0.02278963156291662,
-        "vrp_positive_pct": 58.22222222222222,
-        "long_vol_n": 20,
-        "long_vol_mean_return": 0.029358176489863795,
-        "short_vol_n": 60,
-        "short_vol_mean_return": 0.017257096026682066,
-        "signal_hit_rate": 0.21875
-      },
-      "study2": {
-        "symbol": "BBAS3",
-        "decile_0_vrp": -0.06369294640211444,
-        "decile_9_vrp": 0.19358381773948757,
-        "decile_0_future_rv": 0.3060106005840831,
-        "decile_9_future_rv": 0.3860221779300195,
-        "monotonic": 0.0
-      },
-      "study3": {
-        "symbol": "BBAS3",
-        "regime_low_vrp": null,
-        "regime_medium_vrp": 0.05226036190440994,
-        "regime_high_vrp": 0.010043067770996004,
-        "regime_extreme_vrp": 0.04827659684339538
-      },
-      "forecast_comp": {
-        "symbol": "BBAS3",
-        "n_obs": 205,
-        "ivx_mae": 0.061597196724988396,
-        "garch_mae": 0.06027635813160758,
-        "combined_mae": 0.05407100866939061,
-        "ivx_rmse": 0.07616162904590602,
-        "garch_rmse": 0.07938434775328361,
-        "combined_rmse": 0.06602682165528397,
-        "ivx_spearman": 0.23945898510955407,
-        "garch_spearman": -0.11645470880751067,
-        "combined_spearman": 0.15011352397932887,
-        "ivx_pearson": 0.31807910088580466,
-        "garch_pearson": -0.17223498057049502,
-        "combined_pearson": 0.21979941033055722
-      },
-      "study4": {
-        "symbol": "BBAS3",
-        "atm_iv": 0.27686250115440103,
-        "otm_put_iv": 0.2704656408122294,
-        "otm_call_iv": 0.23152003747267133,
-        "put_skew": -0.006396860342171629,
-        "call_skew": -0.0453424636817297,
-        "n_options": 102
-      }
-    },
-    "WEGE3": {
-      "oplab": {
-        "n_options": 104,
-        "n_valid_iv": 104
-      },
-      "study1": {
-        "symbol": "WEGE3",
+        "symbol": "PCAR3",
         "n_obs": 221,
-        "mean_iv": 0.28736593499034657,
-        "mean_garch_forecast": 0.30032938220081656,
-        "mean_rv": 0.2829677875135269,
-        "mean_vrp_iv_garch": -0.012963447210469997,
-        "mean_vrp_iv_rv": 0.004398147476819675,
-        "vrp_positive_pct": 30.76923076923077,
-        "long_vol_n": 47,
-        "long_vol_mean_return": 0.014642330681620599,
-        "short_vol_n": 23,
-        "short_vol_mean_return": 0.03269268290062795,
-        "signal_hit_rate": 0.23636363636363636
+        "mean_iv": 0.6079598857510707,
+        "mean_garch_forecast": 0.6802814374523938,
+        "mean_rv": 0.5943535446958054,
+        "mean_vrp_iv_garch": -0.07232155170132298,
+        "mean_vrp_iv_rv": 0.013606341055265356,
+        "vrp_positive_pct": 37.10407239819005,
+        "long_vol_n": 107,
+        "long_vol_mean_return": 0.0253397652433534,
+        "short_vol_n": 53,
+        "short_vol_mean_return": 0.030043649355206887,
+        "signal_hit_rate": 0.42272727272727273
       },
       "study2": {
-        "symbol": "WEGE3",
-        "decile_0_vrp": -0.07685152785909032,
-        "decile_9_vrp": 0.09354068947369706,
-        "decile_0_future_rv": 0.24312895875606078,
-        "decile_9_future_rv": 0.26794261057575,
+        "symbol": "PCAR3",
+        "decile_0_vrp": -0.5425711168616225,
+        "decile_9_vrp": 0.18278234769724255,
+        "decile_0_future_rv": 0.6075202166607225,
+        "decile_9_future_rv": 0.7439610852288222,
         "monotonic": 0.0
       },
       "study3": {
-        "symbol": "WEGE3",
-        "regime_low_vrp": 0.043857138319470135,
-        "regime_medium_vrp": -0.020790655304139812,
-        "regime_high_vrp": 0.010654495817203928,
-        "regime_extreme_vrp": -0.06016848492350939
+        "symbol": "PCAR3",
+        "regime_low_vrp": -0.08429083165389797,
+        "regime_medium_vrp": 0.024456182040144738,
+        "regime_high_vrp": -0.21221005668617302,
+        "regime_extreme_vrp": -0.038401981878085314
       },
       "forecast_comp": {
-        "symbol": "WEGE3",
+        "symbol": "PCAR3",
         "n_obs": 201,
-        "ivx_mae": 0.06326881068497828,
-        "garch_mae": 0.06682904962243308,
-        "combined_mae": 0.06339801591334183,
-        "ivx_rmse": 0.08109360978854463,
-        "garch_rmse": 0.0755887221350547,
-        "combined_rmse": 0.07362838048318153,
-        "ivx_spearman": 0.30426777006058814,
-        "garch_spearman": 0.2195995271168908,
-        "combined_spearman": 0.28871287128712875,
-        "ivx_pearson": 0.19210975697023075,
-        "garch_pearson": 0.1063574614714414,
-        "combined_pearson": 0.20593906927328487
+        "ivx_mae": 0.19210275077212202,
+        "garch_mae": 0.21174421964814136,
+        "combined_mae": 0.19435664387276053,
+        "ivx_rmse": 0.23831686650410228,
+        "garch_rmse": 0.24540998285717147,
+        "combined_rmse": 0.2345971053052611,
+        "ivx_spearman": 0.37845066894729223,
+        "garch_spearman": 0.28548101078764593,
+        "combined_spearman": 0.3778690704891385,
+        "ivx_pearson": 0.2923309145580326,
+        "garch_pearson": 0.17437333437586328,
+        "combined_pearson": 0.2815993526756821
       },
       "study4": {
-        "symbol": "WEGE3",
-        "atm_iv": 0.3036905945385297,
-        "otm_put_iv": 0.31005244499992735,
-        "otm_call_iv": 0.2845966731206403,
-        "put_skew": 0.0063618504613976445,
-        "call_skew": -0.019093921417889403,
-        "n_options": 104
+        "error": "No OpLab IV data"
       }
     },
-    "ABEV3": {
+    "PETR4": {
       "oplab": {
-        "n_options": 52,
-        "n_valid_iv": 52
+        "n_options": 235,
+        "n_valid_iv": 235
       },
       "study1": {
-        "symbol": "ABEV3",
-        "n_obs": 220,
-        "mean_iv": 0.2479536161894696,
-        "mean_garch_forecast": 0.22224536713711437,
-        "mean_rv": 0.23608119606103228,
-        "mean_vrp_iv_garch": 0.02570824905235518,
-        "mean_vrp_iv_rv": 0.011872420128437339,
-        "vrp_positive_pct": 77.72727272727272,
-        "long_vol_n": 14,
-        "long_vol_mean_return": 0.021102592802487403,
-        "short_vol_n": 68,
-        "short_vol_mean_return": 0.015519243086430741,
-        "signal_hit_rate": 0.2602739726027397
+        "symbol": "PETR4",
+        "n_obs": 225,
+        "mean_iv": 0.27141621331074695,
+        "mean_garch_forecast": 0.2481411568029945,
+        "mean_rv": 0.2352317954886993,
+        "mean_vrp_iv_garch": 0.023275056507752533,
+        "mean_vrp_iv_rv": 0.03618441782204773,
+        "vrp_positive_pct": 45.33333333333333,
+        "long_vol_n": 20,
+        "long_vol_mean_return": 0.022745956053330414,
+        "short_vol_n": 73,
+        "short_vol_mean_return": 0.003162995394642711,
+        "signal_hit_rate": 0.24107142857142858
       },
       "study2": {
-        "symbol": "ABEV3",
-        "decile_0_vrp": -0.06846723690153299,
-        "decile_9_vrp": 0.0977169703769072,
-        "decile_0_future_rv": 0.16421891946492753,
-        "decile_9_future_rv": 0.30022532286181064,
+        "symbol": "PETR4",
+        "decile_0_vrp": -0.059759556602104746,
+        "decile_9_vrp": 0.1591616413348132,
+        "decile_0_future_rv": 0.19394137770369843,
+        "decile_9_future_rv": 0.3512408480141593,
         "monotonic": 0.0
       },
       "study3": {
-        "symbol": "ABEV3",
-        "regime_low_vrp": 0.032354132622429754,
-        "regime_medium_vrp": 0.037363493022632574,
-        "regime_high_vrp": 0.026823095089096458,
-        "regime_extreme_vrp": -0.06335047296887884
+        "symbol": "PETR4",
+        "regime_low_vrp": -0.022981073252518688,
+        "regime_medium_vrp": 0.05967790455074651,
+        "regime_high_vrp": null,
+        "regime_extreme_vrp": 0.11194261737326117
       },
       "forecast_comp": {
-        "symbol": "ABEV3",
-        "n_obs": 200,
-        "ivx_mae": 0.0668852459792528,
-        "garch_mae": 0.060727294927857806,
-        "combined_mae": 0.05951642144383408,
-        "ivx_rmse": 0.10378181016170336,
-        "garch_rmse": 0.11392836531989271,
-        "combined_rmse": 0.1062112377478309,
-        "ivx_spearman": 0.45360384009600246,
-        "garch_spearman": -0.06602865071626793,
-        "combined_spearman": 0.38301957548938725,
-        "ivx_pearson": 0.32534196636339896,
-        "garch_pearson": -0.12044654287181669,
-        "combined_pearson": 0.2926187960815163
+        "symbol": "PETR4",
+        "n_obs": 205,
+        "ivx_mae": 0.047463277212736826,
+        "garch_mae": 0.06325418466264385,
+        "combined_mae": 0.04843696540686943,
+        "ivx_rmse": 0.05784585992978002,
+        "garch_rmse": 0.0789695273441529,
+        "combined_rmse": 0.058458535478554105,
+        "ivx_spearman": 0.6361410204621748,
+        "garch_spearman": -0.5975331169645219,
+        "combined_spearman": 0.5783928347564458,
+        "ivx_pearson": 0.7357894876136015,
+        "garch_pearson": -0.6132230616099048,
+        "combined_pearson": 0.6892799879690756
+      },
+      "study5": {
+        "n_trades": 7,
+        "total_gross_pnl": 1.21,
+        "total_cost": 0.17655,
+        "total_net_pnl": 1.0334499999999998,
+        "avg_hold_days": 1.5714285714285714,
+        "win_rate": 0.7142857142857143,
+        "sharpe": -3.8709110441807875,
+        "max_drawdown": -0.6444000000000001,
+        "avg_return_per_trade": 0.14763571428571426,
+        "vrp_threshold": 0.2,
+        "cost_per_leg": 0.005
       },
       "study4": {
-        "symbol": "ABEV3",
-        "atm_iv": 0.24858420666967032,
-        "otm_put_iv": 0.2741926716184514,
-        "otm_call_iv": 0.24865634958254837,
-        "put_skew": 0.02560846494878108,
-        "call_skew": 7.214291287804819e-05,
-        "n_options": 52
+        "symbol": "PETR4",
+        "atm_iv": 0.35107217014246617,
+        "otm_put_iv": 0.3609089900349757,
+        "otm_call_iv": 0.34971686659090584,
+        "put_skew": 0.009836819892509507,
+        "call_skew": -0.0013553035515603273,
+        "n_options": 235
+      }
+    },
+    "PRIO3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "PRIO3",
+        "n_obs": 221,
+        "mean_iv": 0.3406998436391227,
+        "mean_garch_forecast": 0.32651002492830716,
+        "mean_rv": 0.30479612845557935,
+        "mean_vrp_iv_garch": 0.014189818710815545,
+        "mean_vrp_iv_rv": 0.03590371518354335,
+        "vrp_positive_pct": 43.43891402714932,
+        "long_vol_n": 31,
+        "long_vol_mean_return": 0.026487843211934203,
+        "short_vol_n": 56,
+        "short_vol_mean_return": 0.016421500880192192,
+        "signal_hit_rate": 0.2590909090909091
+      },
+      "study2": {
+        "symbol": "PRIO3",
+        "decile_0_vrp": -0.07141105302813304,
+        "decile_9_vrp": 0.18605423384792807,
+        "decile_0_future_rv": 0.22682669482143109,
+        "decile_9_future_rv": 0.5096766188249704,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "PRIO3",
+        "regime_low_vrp": -0.01833629326241483,
+        "regime_medium_vrp": 0.091005921804468,
+        "regime_high_vrp": 0.10052437089463866,
+        "regime_extreme_vrp": null
+      },
+      "forecast_comp": {
+        "symbol": "PRIO3",
+        "n_obs": 201,
+        "ivx_mae": 0.06517765528356606,
+        "garch_mae": 0.08676223107686049,
+        "combined_mae": 0.07133097741198485,
+        "ivx_rmse": 0.07996351188264535,
+        "garch_rmse": 0.10077960479142345,
+        "combined_rmse": 0.08238817070594984,
+        "ivx_spearman": 0.5847583862863898,
+        "garch_spearman": 0.2915398256243535,
+        "combined_spearman": 0.4947450864489434,
+        "ivx_pearson": 0.7748972273958253,
+        "garch_pearson": 0.49098532077288276,
+        "combined_pearson": 0.7178199838467614
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "RADL3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "RADL3",
+        "n_obs": 224,
+        "mean_iv": 0.3862072455019409,
+        "mean_garch_forecast": 0.4269413027072825,
+        "mean_rv": 0.3729559976341701,
+        "mean_vrp_iv_garch": -0.04073405720534159,
+        "mean_vrp_iv_rv": 0.013251247867770785,
+        "vrp_positive_pct": 33.92857142857143,
+        "long_vol_n": 102,
+        "long_vol_mean_return": 0.0037204776793581637,
+        "short_vol_n": 25,
+        "short_vol_mean_return": 0.02323826901694123,
+        "signal_hit_rate": 0.32286995515695066
+      },
+      "study2": {
+        "symbol": "RADL3",
+        "decile_0_vrp": -0.18314287858226858,
+        "decile_9_vrp": 0.08675518040218679,
+        "decile_0_future_rv": 0.3864639820623236,
+        "decile_9_future_rv": 0.3546299667339733,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "RADL3",
+        "regime_low_vrp": 0.03127915790463006,
+        "regime_medium_vrp": -0.025997094172459375,
+        "regime_high_vrp": -0.03592308732991109,
+        "regime_extreme_vrp": -0.17372803990921223
+      },
+      "forecast_comp": {
+        "symbol": "RADL3",
+        "n_obs": 204,
+        "ivx_mae": 0.08765791081139473,
+        "garch_mae": 0.11661739947895626,
+        "combined_mae": 0.09506079248874447,
+        "ivx_rmse": 0.12003644018851906,
+        "garch_rmse": 0.14431113614492988,
+        "combined_rmse": 0.12424509735342568,
+        "ivx_spearman": 0.0313588850174216,
+        "garch_spearman": 0.07856188732852266,
+        "combined_spearman": 0.09116056851672544,
+        "ivx_pearson": 0.22323764002892285,
+        "garch_pearson": 0.12504322171427093,
+        "combined_pearson": 0.22295820695749152
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "RAIL3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "RAIL3",
+        "n_obs": 227,
+        "mean_iv": 0.33924554665873274,
+        "mean_garch_forecast": 0.339129770625714,
+        "mean_rv": 0.3367506809297093,
+        "mean_vrp_iv_garch": 0.00011577603301872592,
+        "mean_vrp_iv_rv": 0.0024948657290234707,
+        "vrp_positive_pct": 45.81497797356828,
+        "long_vol_n": 17,
+        "long_vol_mean_return": 0.025112357565468552,
+        "short_vol_n": 30,
+        "short_vol_mean_return": 0.015968596153977648,
+        "signal_hit_rate": 0.13716814159292035
+      },
+      "study2": {
+        "symbol": "RAIL3",
+        "decile_0_vrp": -0.058621135972544466,
+        "decile_9_vrp": 0.06689812298778706,
+        "decile_0_future_rv": 0.348293049469422,
+        "decile_9_future_rv": 0.36826002743996705,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "RAIL3",
+        "regime_low_vrp": 0.017850062805982773,
+        "regime_medium_vrp": 0.008368438115675563,
+        "regime_high_vrp": -0.012180871454397398,
+        "regime_extreme_vrp": -0.00344085327959673
+      },
+      "forecast_comp": {
+        "symbol": "RAIL3",
+        "n_obs": 207,
+        "ivx_mae": 0.07560828089161657,
+        "garch_mae": 0.07913456005233745,
+        "combined_mae": 0.07626874516664142,
+        "ivx_rmse": 0.09439432759052889,
+        "garch_rmse": 0.09723120696769955,
+        "combined_rmse": 0.09403139008534055,
+        "ivx_spearman": 0.07161682414953836,
+        "garch_spearman": -0.02829279908216168,
+        "combined_spearman": -0.016091935361669425,
+        "ivx_pearson": -0.02574883591529262,
+        "garch_pearson": -0.1292827108112318,
+        "combined_pearson": -0.09015137754472002
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "RDOR3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "RDOR3",
+        "n_obs": 229,
+        "mean_iv": 0.2994291854133708,
+        "mean_garch_forecast": 0.274483650758287,
+        "mean_rv": 0.2868790267184523,
+        "mean_vrp_iv_garch": 0.024945534655083843,
+        "mean_vrp_iv_rv": 0.012550158694918588,
+        "vrp_positive_pct": 74.235807860262,
+        "long_vol_n": 15,
+        "long_vol_mean_return": 0.004618174044482182,
+        "short_vol_n": 64,
+        "short_vol_mean_return": 0.009041853314669699,
+        "signal_hit_rate": 0.2236842105263158
+      },
+      "study2": {
+        "symbol": "RDOR3",
+        "decile_0_vrp": -0.05195861891103857,
+        "decile_9_vrp": 0.08976284041981945,
+        "decile_0_future_rv": 0.1969260522538953,
+        "decile_9_future_rv": 0.3355789468887304,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "RDOR3",
+        "regime_low_vrp": 0.008694024649189539,
+        "regime_medium_vrp": 0.049732287870538155,
+        "regime_high_vrp": 0.04717427599153238,
+        "regime_extreme_vrp": -0.0014104696436253775
+      },
+      "forecast_comp": {
+        "symbol": "RDOR3",
+        "n_obs": 209,
+        "ivx_mae": 0.07485868262213778,
+        "garch_mae": 0.08425461981003543,
+        "combined_mae": 0.07646306030634743,
+        "ivx_rmse": 0.08498630407988794,
+        "garch_rmse": 0.09791862561148489,
+        "combined_rmse": 0.08833655442982775,
+        "ivx_spearman": 0.33963273568536734,
+        "garch_spearman": -0.16985120143014878,
+        "combined_spearman": 0.2224275724275724,
+        "ivx_pearson": 0.36654487220038023,
+        "garch_pearson": -0.029864648535691592,
+        "combined_pearson": 0.24946538341975905
+      },
+      "study4": {
+        "error": "No OpLab IV data"
       }
     },
     "RENT3": {
@@ -545,6 +1569,61 @@
         "n_options": 86
       }
     },
+    "SANB11": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "SANB11",
+        "n_obs": 226,
+        "mean_iv": 0.26332064721719983,
+        "mean_garch_forecast": 0.2628086116132919,
+        "mean_rv": 0.26920988109613925,
+        "mean_vrp_iv_garch": 0.0005120356039079754,
+        "mean_vrp_iv_rv": -0.005889233878939393,
+        "vrp_positive_pct": 50.442477876106196,
+        "long_vol_n": 4,
+        "long_vol_mean_return": 0.023068972833054056,
+        "short_vol_n": 12,
+        "short_vol_mean_return": 0.02031546551855784,
+        "signal_hit_rate": 0.05333333333333334
+      },
+      "study2": {
+        "symbol": "SANB11",
+        "decile_0_vrp": -0.0436787857449464,
+        "decile_9_vrp": 0.05864324681851958,
+        "decile_0_future_rv": 0.27037518637874297,
+        "decile_9_future_rv": 0.3624498330713916,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "SANB11",
+        "regime_low_vrp": -0.008287288170710566,
+        "regime_medium_vrp": -0.00715366400909487,
+        "regime_high_vrp": 0.007289086235173646,
+        "regime_extreme_vrp": 0.01825886949619235
+      },
+      "forecast_comp": {
+        "symbol": "SANB11",
+        "n_obs": 206,
+        "ivx_mae": 0.06461512180485426,
+        "garch_mae": 0.06193173369572658,
+        "combined_mae": 0.06261875129439412,
+        "ivx_rmse": 0.08031841754231309,
+        "garch_rmse": 0.08014110187162295,
+        "combined_rmse": 0.07889780956275072,
+        "ivx_spearman": 0.28349857749316204,
+        "garch_spearman": 0.463318542007708,
+        "combined_spearman": 0.35195324431083064,
+        "ivx_pearson": 0.33923805665332235,
+        "garch_pearson": 0.26029420040587803,
+        "combined_pearson": 0.3183628039146473
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
     "SUZB3": {
       "oplab": {
         "n_options": 68,
@@ -606,66 +1685,417 @@
         "n_options": 68
       }
     },
-    "GGBR4": {
+    "TIMS3": {
       "oplab": {
-        "n_options": 40,
-        "n_valid_iv": 40
+        "n_options": 0,
+        "n_valid_iv": 0
       },
       "study1": {
-        "symbol": "GGBR4",
-        "n_obs": 227,
-        "mean_iv": 0.28903276804084344,
-        "mean_garch_forecast": 0.2800796507558483,
-        "mean_rv": 0.24666924640803628,
-        "mean_vrp_iv_garch": 0.00895311728499514,
-        "mean_vrp_iv_rv": 0.042363521632807134,
-        "vrp_positive_pct": 50.22026431718062,
-        "long_vol_n": 7,
-        "long_vol_mean_return": 0.020138918649158965,
-        "short_vol_n": 33,
-        "short_vol_mean_return": 0.026796982685350305,
-        "signal_hit_rate": 0.13716814159292035
+        "symbol": "TIMS3",
+        "n_obs": 221,
+        "mean_iv": 0.23811940504863632,
+        "mean_garch_forecast": 0.2709304496364452,
+        "mean_rv": 0.25999552977271345,
+        "mean_vrp_iv_garch": -0.032811044587808876,
+        "mean_vrp_iv_rv": -0.021876124724077184,
+        "vrp_positive_pct": 26.69683257918552,
+        "long_vol_n": 81,
+        "long_vol_mean_return": 0.012616895264362094,
+        "short_vol_n": 4,
+        "short_vol_mean_return": 0.04164248720251794,
+        "signal_hit_rate": 0.2681818181818182
       },
       "study2": {
-        "symbol": "GGBR4",
-        "decile_0_vrp": -0.0451475258608668,
-        "decile_9_vrp": 0.09492457265165245,
-        "decile_0_future_rv": 0.21061209742878884,
-        "decile_9_future_rv": 0.2633825865755668,
+        "symbol": "TIMS3",
+        "decile_0_vrp": -0.10058665098317689,
+        "decile_9_vrp": 0.04163421310816747,
+        "decile_0_future_rv": 0.16514686625553843,
+        "decile_9_future_rv": 0.33370473728903394,
+        "monotonic": 1.0
+      },
+      "study3": {
+        "symbol": "TIMS3",
+        "regime_low_vrp": -0.044990743681282835,
+        "regime_medium_vrp": -0.049278844434076104,
+        "regime_high_vrp": -0.005043817600986232,
+        "regime_extreme_vrp": -0.040747424222975476
+      },
+      "forecast_comp": {
+        "symbol": "TIMS3",
+        "n_obs": 201,
+        "ivx_mae": 0.06188263761683121,
+        "garch_mae": 0.07680011041303031,
+        "combined_mae": 0.06694849692502801,
+        "ivx_rmse": 0.08118189927680916,
+        "garch_rmse": 0.09750920290187629,
+        "combined_rmse": 0.08628594528181725,
+        "ivx_spearman": 0.5424259429680963,
+        "garch_spearman": -0.37749076400177334,
+        "combined_spearman": 0.3365361312250628,
+        "ivx_pearson": 0.5116342940853997,
+        "garch_pearson": -0.3459477140867286,
+        "combined_pearson": 0.3482464281614172
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "TOTS3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "TOTS3",
+        "n_obs": 222,
+        "mean_iv": 0.3199461884145439,
+        "mean_garch_forecast": 0.3197492240279994,
+        "mean_rv": 0.31728880208252414,
+        "mean_vrp_iv_garch": 0.00019696438654455078,
+        "mean_vrp_iv_rv": 0.002657386332019798,
+        "vrp_positive_pct": 45.04504504504504,
+        "long_vol_n": 31,
+        "long_vol_mean_return": 0.01723026263296113,
+        "short_vol_n": 45,
+        "short_vol_mean_return": 0.016370753040490148,
+        "signal_hit_rate": 0.21266968325791855
+      },
+      "study2": {
+        "symbol": "TOTS3",
+        "decile_0_vrp": -0.09112810391472047,
+        "decile_9_vrp": 0.10510908724294589,
+        "decile_0_future_rv": 0.2816406311810742,
+        "decile_9_future_rv": 0.3334701281711899,
         "monotonic": 0.0
       },
       "study3": {
-        "symbol": "GGBR4",
-        "regime_low_vrp": -0.0037801355952722573,
-        "regime_medium_vrp": 0.026613124367795594,
-        "regime_high_vrp": 0.011802582802418318,
-        "regime_extreme_vrp": null
+        "symbol": "TOTS3",
+        "regime_low_vrp": null,
+        "regime_medium_vrp": -0.0038909971304543095,
+        "regime_high_vrp": 0.006791384908434699,
+        "regime_extreme_vrp": 0.013797664061652663
       },
       "forecast_comp": {
-        "symbol": "GGBR4",
-        "n_obs": 207,
-        "ivx_mae": 0.05517482139714002,
-        "garch_mae": 0.04659187098671723,
-        "combined_mae": 0.04939429588289932,
-        "ivx_rmse": 0.07062938385318045,
-        "garch_rmse": 0.059104487869664525,
-        "combined_rmse": 0.0613803620730646,
-        "ivx_spearman": 0.348409206524445,
-        "garch_spearman": -0.21250040588368996,
-        "combined_spearman": 0.3256553668647379,
-        "ivx_pearson": 0.25899292765933185,
-        "garch_pearson": -0.13900575031000015,
-        "combined_pearson": 0.2421811184592201
+        "symbol": "TOTS3",
+        "n_obs": 202,
+        "ivx_mae": 0.09222040386995464,
+        "garch_mae": 0.09723508563415773,
+        "combined_mae": 0.09397799879375848,
+        "ivx_rmse": 0.11752344109003082,
+        "garch_rmse": 0.12381894406468387,
+        "combined_rmse": 0.1171693781368734,
+        "ivx_spearman": 0.37825625809401026,
+        "garch_spearman": -0.10897931937153718,
+        "combined_spearman": 0.33417534092207835,
+        "ivx_pearson": 0.24211918625993317,
+        "garch_pearson": -0.07483266518114196,
+        "combined_pearson": 0.15316086361534748
       },
       "study4": {
-        "symbol": "GGBR4",
-        "atm_iv": 0.295167143424988,
-        "otm_put_iv": 0.38798652316471943,
-        "otm_call_iv": 0.3269626827137332,
-        "put_skew": 0.09281937973973142,
-        "call_skew": 0.03179553928874518,
-        "n_options": 40
+        "error": "No OpLab IV data"
       }
-    }
+    },
+    "UGPA3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "UGPA3",
+        "n_obs": 221,
+        "mean_iv": 0.3327462343700103,
+        "mean_garch_forecast": 0.3410808556666878,
+        "mean_rv": 0.3030756766957364,
+        "mean_vrp_iv_garch": -0.00833462129667754,
+        "mean_vrp_iv_rv": 0.029670557674273866,
+        "vrp_positive_pct": 42.98642533936652,
+        "long_vol_n": 42,
+        "long_vol_mean_return": 0.014009090616962235,
+        "short_vol_n": 15,
+        "short_vol_mean_return": 0.03925965091118564,
+        "signal_hit_rate": 0.19545454545454546
+      },
+      "study2": {
+        "symbol": "UGPA3",
+        "decile_0_vrp": -0.07177301624564414,
+        "decile_9_vrp": 0.06531855828386599,
+        "decile_0_future_rv": 0.30913626114511733,
+        "decile_9_future_rv": 0.3854787511526998,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "UGPA3",
+        "regime_low_vrp": -0.010840401653336421,
+        "regime_medium_vrp": 0.011304445215762156,
+        "regime_high_vrp": -0.0326952548389165,
+        "regime_extreme_vrp": -0.05633244015289647
+      },
+      "forecast_comp": {
+        "symbol": "UGPA3",
+        "n_obs": 201,
+        "ivx_mae": 0.07341246139291446,
+        "garch_mae": 0.08180241758639557,
+        "combined_mae": 0.07738454171332766,
+        "ivx_rmse": 0.0846483951605541,
+        "garch_rmse": 0.09757983872297789,
+        "combined_rmse": 0.08871444534883421,
+        "ivx_spearman": 0.127926703118073,
+        "garch_spearman": -0.27826067681395006,
+        "combined_spearman": -0.1030234963794887,
+        "ivx_pearson": 0.1432271068857032,
+        "garch_pearson": -0.30436244160828396,
+        "combined_pearson": -0.11384793038459658
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "VALE3": {
+      "oplab": {
+        "n_options": 161,
+        "n_valid_iv": 161
+      },
+      "study1": {
+        "symbol": "VALE3",
+        "n_obs": 221,
+        "mean_iv": 0.24260607067214035,
+        "mean_garch_forecast": 0.24276359783306675,
+        "mean_rv": 0.229152356359181,
+        "mean_vrp_iv_garch": -0.00015752716092633202,
+        "mean_vrp_iv_rv": 0.013453714312959381,
+        "vrp_positive_pct": 42.98642533936652,
+        "long_vol_n": 14,
+        "long_vol_mean_return": 0.003914590718268286,
+        "short_vol_n": 39,
+        "short_vol_mean_return": 0.010609119482214832,
+        "signal_hit_rate": 0.14545454545454545
+      },
+      "study2": {
+        "symbol": "VALE3",
+        "decile_0_vrp": -0.05801187355500622,
+        "decile_9_vrp": 0.07731955052278966,
+        "decile_0_future_rv": 0.1442864908075784,
+        "decile_9_future_rv": 0.28619507280881756,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "VALE3",
+        "regime_low_vrp": -0.021831400093759654,
+        "regime_medium_vrp": 0.023424194648362488,
+        "regime_high_vrp": 0.004705821154134001,
+        "regime_extreme_vrp": 0.05508307340370053
+      },
+      "forecast_comp": {
+        "symbol": "VALE3",
+        "n_obs": 201,
+        "ivx_mae": 0.060122301854237274,
+        "garch_mae": 0.07340831120519688,
+        "combined_mae": 0.06465848109595337,
+        "ivx_rmse": 0.07139480767225345,
+        "garch_rmse": 0.08552393575045884,
+        "combined_rmse": 0.0761347057664003,
+        "ivx_spearman": 0.6400088665582977,
+        "garch_spearman": 0.324545588887247,
+        "combined_spearman": 0.594294369735481,
+        "ivx_pearson": 0.6171823322900648,
+        "garch_pearson": 0.2893326695098557,
+        "combined_pearson": 0.5706930298736862
+      },
+      "study5": {
+        "n_trades": 14,
+        "total_gross_pnl": 2.5300000000000002,
+        "total_cost": 0.66225,
+        "total_net_pnl": 1.8677500000000002,
+        "avg_hold_days": 1.2142857142857142,
+        "win_rate": 0.5,
+        "sharpe": 4.29304451171648,
+        "max_drawdown": -0.8904999999999992,
+        "avg_return_per_trade": 0.1334107142857143,
+        "vrp_threshold": 0.2,
+        "cost_per_leg": 0.005
+      },
+      "study4": {
+        "symbol": "VALE3",
+        "atm_iv": 0.3005679732264363,
+        "otm_put_iv": 0.3859964609830034,
+        "otm_call_iv": 0.3342894262954235,
+        "put_skew": 0.08542848775656708,
+        "call_skew": 0.03372145306898722,
+        "n_options": 161
+      }
+    },
+    "VBBR3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "VBBR3",
+        "n_obs": 222,
+        "mean_iv": 0.30921962974817396,
+        "mean_garch_forecast": 0.29149812848438045,
+        "mean_rv": 0.27619708115441405,
+        "mean_vrp_iv_garch": 0.01772150126379352,
+        "mean_vrp_iv_rv": 0.03302254859375989,
+        "vrp_positive_pct": 66.66666666666666,
+        "long_vol_n": 3,
+        "long_vol_mean_return": 0.049315368403566436,
+        "short_vol_n": 29,
+        "short_vol_mean_return": 0.012402399969192488,
+        "signal_hit_rate": 0.09049773755656108
+      },
+      "study2": {
+        "symbol": "VBBR3",
+        "decile_0_vrp": -0.033037454247438536,
+        "decile_9_vrp": 0.09618057130171163,
+        "decile_0_future_rv": 0.2716421836937724,
+        "decile_9_future_rv": 0.3301182588476571,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "VBBR3",
+        "regime_low_vrp": 0.006225152787409335,
+        "regime_medium_vrp": 0.02792331041309516,
+        "regime_high_vrp": 0.00836140673104221,
+        "regime_extreme_vrp": 0.026231896143233534
+      },
+      "forecast_comp": {
+        "symbol": "VBBR3",
+        "n_obs": 202,
+        "ivx_mae": 0.06626095137787344,
+        "garch_mae": 0.057507357862236444,
+        "combined_mae": 0.05882434503502049,
+        "ivx_rmse": 0.07860074469142782,
+        "garch_rmse": 0.07263134798340888,
+        "combined_rmse": 0.07280308246924334,
+        "ivx_spearman": 0.23612197996507245,
+        "garch_spearman": -0.11502284703876607,
+        "combined_spearman": 0.1871215060628186,
+        "ivx_pearson": 0.24607568330381757,
+        "garch_pearson": -0.08114920426377907,
+        "combined_pearson": 0.1711058186406813
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "VIIA3": {},
+    "VIVT3": {
+      "oplab": {
+        "n_options": 0,
+        "n_valid_iv": 0
+      },
+      "study1": {
+        "symbol": "VIVT3",
+        "n_obs": 227,
+        "mean_iv": 0.23364672368638692,
+        "mean_garch_forecast": 0.2383730945198996,
+        "mean_rv": 0.2316057611206514,
+        "mean_vrp_iv_garch": -0.004726370833512662,
+        "mean_vrp_iv_rv": 0.0020409625657355187,
+        "vrp_positive_pct": 46.25550660792951,
+        "long_vol_n": 34,
+        "long_vol_mean_return": 0.01893151084784073,
+        "short_vol_n": 20,
+        "short_vol_mean_return": 0.03049734189949275,
+        "signal_hit_rate": 0.18584070796460178
+      },
+      "study2": {
+        "symbol": "VIVT3",
+        "decile_0_vrp": -0.07031811746234681,
+        "decile_9_vrp": 0.0698167360678039,
+        "decile_0_future_rv": 0.2378234520243107,
+        "decile_9_future_rv": 0.2763608800751741,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "VIVT3",
+        "regime_low_vrp": -0.0061257210720890715,
+        "regime_medium_vrp": -0.023126800442273998,
+        "regime_high_vrp": 0.021940466297341234,
+        "regime_extreme_vrp": -0.02168917280998351
+      },
+      "forecast_comp": {
+        "symbol": "VIVT3",
+        "n_obs": 207,
+        "ivx_mae": 0.06308920755843647,
+        "garch_mae": 0.05880679175776655,
+        "combined_mae": 0.058989349003964825,
+        "ivx_rmse": 0.07486119256391999,
+        "garch_rmse": 0.07082431657006864,
+        "combined_rmse": 0.06988500102276861,
+        "ivx_spearman": 0.10018968297777923,
+        "garch_spearman": -0.1373348053381823,
+        "combined_spearman": 0.10034121288870128,
+        "ivx_pearson": 0.17009346174200615,
+        "garch_pearson": 0.05510843603642169,
+        "combined_pearson": 0.1576342496569435
+      },
+      "study4": {
+        "error": "No OpLab IV data"
+      }
+    },
+    "WEGE3": {
+      "oplab": {
+        "n_options": 104,
+        "n_valid_iv": 104
+      },
+      "study1": {
+        "symbol": "WEGE3",
+        "n_obs": 221,
+        "mean_iv": 0.28736593499034657,
+        "mean_garch_forecast": 0.30032938220081656,
+        "mean_rv": 0.2829677875135269,
+        "mean_vrp_iv_garch": -0.012963447210469997,
+        "mean_vrp_iv_rv": 0.004398147476819675,
+        "vrp_positive_pct": 30.76923076923077,
+        "long_vol_n": 47,
+        "long_vol_mean_return": 0.014642330681620599,
+        "short_vol_n": 23,
+        "short_vol_mean_return": 0.03269268290062795,
+        "signal_hit_rate": 0.23636363636363636
+      },
+      "study2": {
+        "symbol": "WEGE3",
+        "decile_0_vrp": -0.07685152785909032,
+        "decile_9_vrp": 0.09354068947369706,
+        "decile_0_future_rv": 0.24312895875606078,
+        "decile_9_future_rv": 0.26794261057575,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "WEGE3",
+        "regime_low_vrp": 0.043857138319470135,
+        "regime_medium_vrp": -0.020790655304139812,
+        "regime_high_vrp": 0.010654495817203928,
+        "regime_extreme_vrp": -0.06016848492350939
+      },
+      "forecast_comp": {
+        "symbol": "WEGE3",
+        "n_obs": 201,
+        "ivx_mae": 0.06326881068497828,
+        "garch_mae": 0.06682904962243308,
+        "combined_mae": 0.06339801591334183,
+        "ivx_rmse": 0.08109360978854463,
+        "garch_rmse": 0.0755887221350547,
+        "combined_rmse": 0.07362838048318153,
+        "ivx_spearman": 0.30426777006058814,
+        "garch_spearman": 0.2195995271168908,
+        "combined_spearman": 0.28871287128712875,
+        "ivx_pearson": 0.19210975697023075,
+        "garch_pearson": 0.1063574614714414,
+        "combined_pearson": 0.20593906927328487
+      },
+      "study4": {
+        "symbol": "WEGE3",
+        "atm_iv": 0.3036905945385297,
+        "otm_put_iv": 0.31005244499992735,
+        "otm_call_iv": 0.2845966731206403,
+        "put_skew": 0.0063618504613976445,
+        "call_skew": -0.019093921417889403,
+        "n_options": 104
+      }
+    },
+    "YDUQS3": {}
   }
 }
