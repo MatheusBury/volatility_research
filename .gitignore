@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+
+# Data
+data/*.parquet
+data/*.csv
+data/*.hdf5
+data/*.h5
+!data/.gitkeep
+
+# Notebooks
+notebooks/.ipynb_checkpoints/
+notebooks/*/.ipynb_checkpoints/
+
+# Models
+models/*.pkl
+models/*.joblib
+models/*.onnx
+models/*.h5
+!models/.gitkeep
+
+# Reports
+reports/*.pdf
+reports/*.html
+!reports/.gitkeep
+
+# Studies - results
+studies/*/results/
+studies/*/charts/
+studies/*/.ipynb_checkpoints/
+
+# Configs - secrets
+configs/*.local.yaml
+configs/*.local.json
+!configs/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Environment
+.env
+.env.local

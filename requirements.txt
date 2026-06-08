@@ -1,0 +1,3 @@
+# Projeto gerenciado via pyproject.toml
+# Instalar com: pip install -e ".[dev]"
+.

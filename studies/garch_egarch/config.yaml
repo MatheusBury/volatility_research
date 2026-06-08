@@ -1,0 +1,41 @@
+﻿# Configuração do Estudo GARCH vs EGARCH
+# studies/garch_egarch/config.yaml
+
+data:
+  dir: "C:\\Users\\mathe\\Documents\\GitHub\\mt5\\dataset\\export_mt5\\intraday\\avista\\M15"
+  timeframe: M15
+
+universe:
+  symbols:
+    - PETR4
+    - VALE3
+    - ITUB4
+    - BBDC4
+    - BBAS3
+    - ABEV3
+    - WEGE3
+    - SUZB3
+    - RENT3
+  symbol_map:
+    JBSS3: JBSS32
+
+model:
+  garch:
+    p: 1
+    q: 1
+    mean: "zero"
+    dist: "normal"
+  egarch:
+    p: 1
+    o: 1
+    q: 1
+    mean: "zero"
+    dist: "normal"
+
+split:
+  oos_fraction: 0.20
+
+forecast:
+  horizon: 5
+
+seed: 42

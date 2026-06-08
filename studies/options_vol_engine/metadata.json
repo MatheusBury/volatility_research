@@ -1,0 +1,671 @@
+{
+  "study": "Options Volatility Engine",
+  "generated_at": "2026-06-07T23:35:34.578653",
+  "symbols": [
+    "PETR4",
+    "VALE3",
+    "ITUB4",
+    "BBDC4",
+    "BBAS3",
+    "WEGE3",
+    "ABEV3",
+    "RENT3",
+    "SUZB3",
+    "GGBR4"
+  ],
+  "seed": 42,
+  "risk_free_rate": 0.1475,
+  "garch_window": 504,
+  "rv_window": 20,
+  "results": {
+    "PETR4": {
+      "oplab": {
+        "n_options": 235,
+        "n_valid_iv": 235
+      },
+      "study1": {
+        "symbol": "PETR4",
+        "n_obs": 225,
+        "mean_iv": 0.27141621331074695,
+        "mean_garch_forecast": 0.2481411568029945,
+        "mean_rv": 0.2352317954886993,
+        "mean_vrp_iv_garch": 0.023275056507752533,
+        "mean_vrp_iv_rv": 0.03618441782204773,
+        "vrp_positive_pct": 45.33333333333333,
+        "long_vol_n": 20,
+        "long_vol_mean_return": 0.022745956053330414,
+        "short_vol_n": 73,
+        "short_vol_mean_return": 0.003162995394642711,
+        "signal_hit_rate": 0.24107142857142858
+      },
+      "study2": {
+        "symbol": "PETR4",
+        "decile_0_vrp": -0.059759556602104746,
+        "decile_9_vrp": 0.1591616413348132,
+        "decile_0_future_rv": 0.19394137770369843,
+        "decile_9_future_rv": 0.3512408480141593,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "PETR4",
+        "regime_low_vrp": -0.022981073252518688,
+        "regime_medium_vrp": 0.05967790455074651,
+        "regime_high_vrp": null,
+        "regime_extreme_vrp": 0.11194261737326117
+      },
+      "forecast_comp": {
+        "symbol": "PETR4",
+        "n_obs": 205,
+        "ivx_mae": 0.047463277212736826,
+        "garch_mae": 0.06325418466264385,
+        "combined_mae": 0.04843696540686943,
+        "ivx_rmse": 0.05784585992978002,
+        "garch_rmse": 0.0789695273441529,
+        "combined_rmse": 0.058458535478554105,
+        "ivx_spearman": 0.6361410204621748,
+        "garch_spearman": -0.5975331169645219,
+        "combined_spearman": 0.5783928347564458,
+        "ivx_pearson": 0.7357894876136015,
+        "garch_pearson": -0.6132230616099048,
+        "combined_pearson": 0.6892799879690756
+      },
+      "study5": {
+        "n_trades": 7,
+        "total_gross_pnl": 1.21,
+        "total_cost": 0.17655,
+        "total_net_pnl": 1.0334499999999998,
+        "avg_hold_days": 1.5714285714285714,
+        "win_rate": 0.7142857142857143,
+        "sharpe": -3.8709110441807875,
+        "max_drawdown": -0.6444000000000001,
+        "avg_return_per_trade": 0.14763571428571426,
+        "vrp_threshold": 0.2,
+        "cost_per_leg": 0.005
+      },
+      "study4": {
+        "symbol": "PETR4",
+        "atm_iv": 0.35107217014246617,
+        "otm_put_iv": 0.3609089900349757,
+        "otm_call_iv": 0.34971686659090584,
+        "put_skew": 0.009836819892509507,
+        "call_skew": -0.0013553035515603273,
+        "n_options": 235
+      }
+    },
+    "VALE3": {
+      "oplab": {
+        "n_options": 161,
+        "n_valid_iv": 161
+      },
+      "study1": {
+        "symbol": "VALE3",
+        "n_obs": 221,
+        "mean_iv": 0.24260607067214035,
+        "mean_garch_forecast": 0.24276359783306675,
+        "mean_rv": 0.229152356359181,
+        "mean_vrp_iv_garch": -0.00015752716092633202,
+        "mean_vrp_iv_rv": 0.013453714312959381,
+        "vrp_positive_pct": 42.98642533936652,
+        "long_vol_n": 14,
+        "long_vol_mean_return": 0.003914590718268286,
+        "short_vol_n": 39,
+        "short_vol_mean_return": 0.010609119482214832,
+        "signal_hit_rate": 0.14545454545454545
+      },
+      "study2": {
+        "symbol": "VALE3",
+        "decile_0_vrp": -0.05801187355500622,
+        "decile_9_vrp": 0.07731955052278966,
+        "decile_0_future_rv": 0.1442864908075784,
+        "decile_9_future_rv": 0.28619507280881756,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "VALE3",
+        "regime_low_vrp": -0.021831400093759654,
+        "regime_medium_vrp": 0.023424194648362488,
+        "regime_high_vrp": 0.004705821154134001,
+        "regime_extreme_vrp": 0.05508307340370053
+      },
+      "forecast_comp": {
+        "symbol": "VALE3",
+        "n_obs": 201,
+        "ivx_mae": 0.060122301854237274,
+        "garch_mae": 0.07340831120519688,
+        "combined_mae": 0.06465848109595337,
+        "ivx_rmse": 0.07139480767225345,
+        "garch_rmse": 0.08552393575045884,
+        "combined_rmse": 0.0761347057664003,
+        "ivx_spearman": 0.6400088665582977,
+        "garch_spearman": 0.324545588887247,
+        "combined_spearman": 0.594294369735481,
+        "ivx_pearson": 0.6171823322900648,
+        "garch_pearson": 0.2893326695098557,
+        "combined_pearson": 0.5706930298736862
+      },
+      "study5": {
+        "n_trades": 14,
+        "total_gross_pnl": 2.5300000000000002,
+        "total_cost": 0.66225,
+        "total_net_pnl": 1.8677500000000002,
+        "avg_hold_days": 1.2142857142857142,
+        "win_rate": 0.5,
+        "sharpe": 4.29304451171648,
+        "max_drawdown": -0.8904999999999992,
+        "avg_return_per_trade": 0.1334107142857143,
+        "vrp_threshold": 0.2,
+        "cost_per_leg": 0.005
+      },
+      "study4": {
+        "symbol": "VALE3",
+        "atm_iv": 0.3005679732264363,
+        "otm_put_iv": 0.3859964609830034,
+        "otm_call_iv": 0.3342894262954235,
+        "put_skew": 0.08542848775656708,
+        "call_skew": 0.03372145306898722,
+        "n_options": 161
+      }
+    },
+    "ITUB4": {
+      "oplab": {
+        "n_options": 113,
+        "n_valid_iv": 113
+      },
+      "study1": {
+        "symbol": "ITUB4",
+        "n_obs": 221,
+        "mean_iv": 0.24012040682047114,
+        "mean_garch_forecast": 0.21311792511955033,
+        "mean_rv": 0.22360435149270713,
+        "mean_vrp_iv_garch": 0.027002481700920834,
+        "mean_vrp_iv_rv": 0.016516055327764078,
+        "vrp_positive_pct": 81.44796380090497,
+        "long_vol_n": 1,
+        "long_vol_mean_return": 0.061927238184601385,
+        "short_vol_n": 45,
+        "short_vol_mean_return": 0.01589786787437033,
+        "signal_hit_rate": 0.1318181818181818
+      },
+      "study2": {
+        "symbol": "ITUB4",
+        "decile_0_vrp": -0.017982242799799267,
+        "decile_9_vrp": 0.09979051858416416,
+        "decile_0_future_rv": 0.24478182788318273,
+        "decile_9_future_rv": 0.2436863438579169,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "ITUB4",
+        "regime_low_vrp": 0.014735565212906318,
+        "regime_medium_vrp": 0.028270187636233485,
+        "regime_high_vrp": 0.04025801989431885,
+        "regime_extreme_vrp": 0.028807759410047616
+      },
+      "forecast_comp": {
+        "symbol": "ITUB4",
+        "n_obs": 201,
+        "ivx_mae": 0.0516611169762074,
+        "garch_mae": 0.04208507917939795,
+        "combined_mae": 0.04379628598039625,
+        "ivx_rmse": 0.06364632624910331,
+        "garch_rmse": 0.05274849530525697,
+        "combined_rmse": 0.05343943589505169,
+        "ivx_spearman": 0.27138170533471256,
+        "garch_spearman": 0.3937062213684055,
+        "combined_spearman": 0.32471700901433426,
+        "ivx_pearson": 0.25683258887965327,
+        "garch_pearson": 0.41082571867120915,
+        "combined_pearson": 0.3483436289793783
+      },
+      "study5": {
+        "n_trades": 7,
+        "total_gross_pnl": 2.05,
+        "total_cost": 0.12985,
+        "total_net_pnl": 1.92015,
+        "avg_hold_days": 1.2857142857142858,
+        "win_rate": 0.8571428571428571,
+        "sharpe": 17.044961856629307,
+        "max_drawdown": 0.0,
+        "avg_return_per_trade": 0.27430714285714286,
+        "vrp_threshold": 0.2,
+        "cost_per_leg": 0.005
+      },
+      "study4": {
+        "symbol": "ITUB4",
+        "atm_iv": 0.30095555703109156,
+        "otm_put_iv": 0.32411140208155675,
+        "otm_call_iv": 0.30304958505542084,
+        "put_skew": 0.023155845050465196,
+        "call_skew": 0.0020940280243292864,
+        "n_options": 113
+      }
+    },
+    "BBDC4": {
+      "oplab": {
+        "n_options": 67,
+        "n_valid_iv": 67
+      },
+      "study1": {
+        "symbol": "BBDC4",
+        "n_obs": 221,
+        "mean_iv": 0.28090174734069734,
+        "mean_garch_forecast": 0.2987836246636261,
+        "mean_rv": 0.24644678262673708,
+        "mean_vrp_iv_garch": -0.01788187732292869,
+        "mean_vrp_iv_rv": 0.034454964713960236,
+        "vrp_positive_pct": 28.50678733031674,
+        "long_vol_n": 50,
+        "long_vol_mean_return": 0.010441415669112027,
+        "short_vol_n": 18,
+        "short_vol_mean_return": 0.03189972932904592,
+        "signal_hit_rate": 0.21363636363636362
+      },
+      "study2": {
+        "symbol": "BBDC4",
+        "decile_0_vrp": -0.08650535071056664,
+        "decile_9_vrp": 0.06818555581852678,
+        "decile_0_future_rv": 0.23723584419466698,
+        "decile_9_future_rv": 0.2873643045612251,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "BBDC4",
+        "regime_low_vrp": null,
+        "regime_medium_vrp": -0.03262848425577315,
+        "regime_high_vrp": 0.002795430224211922,
+        "regime_extreme_vrp": null
+      },
+      "forecast_comp": {
+        "symbol": "BBDC4",
+        "n_obs": 201,
+        "ivx_mae": 0.050353665732597294,
+        "garch_mae": 0.0585338953280789,
+        "combined_mae": 0.05131062505642615,
+        "ivx_rmse": 0.06137829788070569,
+        "garch_rmse": 0.07259411272306449,
+        "combined_rmse": 0.0625358300718537,
+        "ivx_spearman": 0.27687897147923746,
+        "garch_spearman": -0.36961873799320233,
+        "combined_spearman": 0.1541126052903798,
+        "ivx_pearson": 0.2730020639124278,
+        "garch_pearson": -0.32865584669108144,
+        "combined_pearson": 0.16664855919635757
+      },
+      "study4": {
+        "symbol": "BBDC4",
+        "atm_iv": 0.28717568412043526,
+        "otm_put_iv": 0.29630308561197893,
+        "otm_call_iv": 0.2623869412537257,
+        "put_skew": 0.009127401491543674,
+        "call_skew": -0.024788742866709568,
+        "n_options": 67
+      }
+    },
+    "BBAS3": {
+      "oplab": {
+        "n_options": 102,
+        "n_valid_iv": 102
+      },
+      "study1": {
+        "symbol": "BBAS3",
+        "n_obs": 225,
+        "mean_iv": 0.30683805894014526,
+        "mean_garch_forecast": 0.2804852296290091,
+        "mean_rv": 0.28404842737722863,
+        "mean_vrp_iv_garch": 0.026352829311136097,
+        "mean_vrp_iv_rv": 0.02278963156291662,
+        "vrp_positive_pct": 58.22222222222222,
+        "long_vol_n": 20,
+        "long_vol_mean_return": 0.029358176489863795,
+        "short_vol_n": 60,
+        "short_vol_mean_return": 0.017257096026682066,
+        "signal_hit_rate": 0.21875
+      },
+      "study2": {
+        "symbol": "BBAS3",
+        "decile_0_vrp": -0.06369294640211444,
+        "decile_9_vrp": 0.19358381773948757,
+        "decile_0_future_rv": 0.3060106005840831,
+        "decile_9_future_rv": 0.3860221779300195,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "BBAS3",
+        "regime_low_vrp": null,
+        "regime_medium_vrp": 0.05226036190440994,
+        "regime_high_vrp": 0.010043067770996004,
+        "regime_extreme_vrp": 0.04827659684339538
+      },
+      "forecast_comp": {
+        "symbol": "BBAS3",
+        "n_obs": 205,
+        "ivx_mae": 0.061597196724988396,
+        "garch_mae": 0.06027635813160758,
+        "combined_mae": 0.05407100866939061,
+        "ivx_rmse": 0.07616162904590602,
+        "garch_rmse": 0.07938434775328361,
+        "combined_rmse": 0.06602682165528397,
+        "ivx_spearman": 0.23945898510955407,
+        "garch_spearman": -0.11645470880751067,
+        "combined_spearman": 0.15011352397932887,
+        "ivx_pearson": 0.31807910088580466,
+        "garch_pearson": -0.17223498057049502,
+        "combined_pearson": 0.21979941033055722
+      },
+      "study4": {
+        "symbol": "BBAS3",
+        "atm_iv": 0.27686250115440103,
+        "otm_put_iv": 0.2704656408122294,
+        "otm_call_iv": 0.23152003747267133,
+        "put_skew": -0.006396860342171629,
+        "call_skew": -0.0453424636817297,
+        "n_options": 102
+      }
+    },
+    "WEGE3": {
+      "oplab": {
+        "n_options": 104,
+        "n_valid_iv": 104
+      },
+      "study1": {
+        "symbol": "WEGE3",
+        "n_obs": 221,
+        "mean_iv": 0.28736593499034657,
+        "mean_garch_forecast": 0.30032938220081656,
+        "mean_rv": 0.2829677875135269,
+        "mean_vrp_iv_garch": -0.012963447210469997,
+        "mean_vrp_iv_rv": 0.004398147476819675,
+        "vrp_positive_pct": 30.76923076923077,
+        "long_vol_n": 47,
+        "long_vol_mean_return": 0.014642330681620599,
+        "short_vol_n": 23,
+        "short_vol_mean_return": 0.03269268290062795,
+        "signal_hit_rate": 0.23636363636363636
+      },
+      "study2": {
+        "symbol": "WEGE3",
+        "decile_0_vrp": -0.07685152785909032,
+        "decile_9_vrp": 0.09354068947369706,
+        "decile_0_future_rv": 0.24312895875606078,
+        "decile_9_future_rv": 0.26794261057575,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "WEGE3",
+        "regime_low_vrp": 0.043857138319470135,
+        "regime_medium_vrp": -0.020790655304139812,
+        "regime_high_vrp": 0.010654495817203928,
+        "regime_extreme_vrp": -0.06016848492350939
+      },
+      "forecast_comp": {
+        "symbol": "WEGE3",
+        "n_obs": 201,
+        "ivx_mae": 0.06326881068497828,
+        "garch_mae": 0.06682904962243308,
+        "combined_mae": 0.06339801591334183,
+        "ivx_rmse": 0.08109360978854463,
+        "garch_rmse": 0.0755887221350547,
+        "combined_rmse": 0.07362838048318153,
+        "ivx_spearman": 0.30426777006058814,
+        "garch_spearman": 0.2195995271168908,
+        "combined_spearman": 0.28871287128712875,
+        "ivx_pearson": 0.19210975697023075,
+        "garch_pearson": 0.1063574614714414,
+        "combined_pearson": 0.20593906927328487
+      },
+      "study4": {
+        "symbol": "WEGE3",
+        "atm_iv": 0.3036905945385297,
+        "otm_put_iv": 0.31005244499992735,
+        "otm_call_iv": 0.2845966731206403,
+        "put_skew": 0.0063618504613976445,
+        "call_skew": -0.019093921417889403,
+        "n_options": 104
+      }
+    },
+    "ABEV3": {
+      "oplab": {
+        "n_options": 52,
+        "n_valid_iv": 52
+      },
+      "study1": {
+        "symbol": "ABEV3",
+        "n_obs": 220,
+        "mean_iv": 0.2479536161894696,
+        "mean_garch_forecast": 0.22224536713711437,
+        "mean_rv": 0.23608119606103228,
+        "mean_vrp_iv_garch": 0.02570824905235518,
+        "mean_vrp_iv_rv": 0.011872420128437339,
+        "vrp_positive_pct": 77.72727272727272,
+        "long_vol_n": 14,
+        "long_vol_mean_return": 0.021102592802487403,
+        "short_vol_n": 68,
+        "short_vol_mean_return": 0.015519243086430741,
+        "signal_hit_rate": 0.2602739726027397
+      },
+      "study2": {
+        "symbol": "ABEV3",
+        "decile_0_vrp": -0.06846723690153299,
+        "decile_9_vrp": 0.0977169703769072,
+        "decile_0_future_rv": 0.16421891946492753,
+        "decile_9_future_rv": 0.30022532286181064,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "ABEV3",
+        "regime_low_vrp": 0.032354132622429754,
+        "regime_medium_vrp": 0.037363493022632574,
+        "regime_high_vrp": 0.026823095089096458,
+        "regime_extreme_vrp": -0.06335047296887884
+      },
+      "forecast_comp": {
+        "symbol": "ABEV3",
+        "n_obs": 200,
+        "ivx_mae": 0.0668852459792528,
+        "garch_mae": 0.060727294927857806,
+        "combined_mae": 0.05951642144383408,
+        "ivx_rmse": 0.10378181016170336,
+        "garch_rmse": 0.11392836531989271,
+        "combined_rmse": 0.1062112377478309,
+        "ivx_spearman": 0.45360384009600246,
+        "garch_spearman": -0.06602865071626793,
+        "combined_spearman": 0.38301957548938725,
+        "ivx_pearson": 0.32534196636339896,
+        "garch_pearson": -0.12044654287181669,
+        "combined_pearson": 0.2926187960815163
+      },
+      "study4": {
+        "symbol": "ABEV3",
+        "atm_iv": 0.24858420666967032,
+        "otm_put_iv": 0.2741926716184514,
+        "otm_call_iv": 0.24865634958254837,
+        "put_skew": 0.02560846494878108,
+        "call_skew": 7.214291287804819e-05,
+        "n_options": 52
+      }
+    },
+    "RENT3": {
+      "oplab": {
+        "n_options": 86,
+        "n_valid_iv": 86
+      },
+      "study1": {
+        "symbol": "RENT3",
+        "n_obs": 221,
+        "mean_iv": 0.3863026305622913,
+        "mean_garch_forecast": 0.40099155133188985,
+        "mean_rv": 0.36370398782235397,
+        "mean_vrp_iv_garch": -0.014688920769598603,
+        "mean_vrp_iv_rv": 0.022598642739937322,
+        "vrp_positive_pct": 31.221719457013574,
+        "long_vol_n": 44,
+        "long_vol_mean_return": 0.010138418419062564,
+        "short_vol_n": 26,
+        "short_vol_mean_return": 0.03330925449192543,
+        "signal_hit_rate": 0.2
+      },
+      "study2": {
+        "symbol": "RENT3",
+        "decile_0_vrp": -0.094046890230472,
+        "decile_9_vrp": 0.09092389193564294,
+        "decile_0_future_rv": 0.30395561455382775,
+        "decile_9_future_rv": 0.37000761736822857,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "RENT3",
+        "regime_low_vrp": -0.011111117992572974,
+        "regime_medium_vrp": -0.0029024757748935563,
+        "regime_high_vrp": -0.01982905682236127,
+        "regime_extreme_vrp": -0.03616637349639674
+      },
+      "forecast_comp": {
+        "symbol": "RENT3",
+        "n_obs": 201,
+        "ivx_mae": 0.08985719598256069,
+        "garch_mae": 0.09633541415560476,
+        "combined_mae": 0.09225727931177657,
+        "ivx_rmse": 0.10526841400414551,
+        "garch_rmse": 0.10934569284703442,
+        "combined_rmse": 0.10426278706881723,
+        "ivx_spearman": 0.26340919166543525,
+        "garch_spearman": 0.10968228166100193,
+        "combined_spearman": 0.2216196246490321,
+        "ivx_pearson": 0.27589792208613145,
+        "garch_pearson": 0.14827643875386454,
+        "combined_pearson": 0.26208012151172283
+      },
+      "study4": {
+        "symbol": "RENT3",
+        "atm_iv": 0.39214194513194983,
+        "otm_put_iv": 0.3961898448699055,
+        "otm_call_iv": 0.39754574650304253,
+        "put_skew": 0.0040478997379556625,
+        "call_skew": 0.005403801371092698,
+        "n_options": 86
+      }
+    },
+    "SUZB3": {
+      "oplab": {
+        "n_options": 68,
+        "n_valid_iv": 68
+      },
+      "study1": {
+        "symbol": "SUZB3",
+        "n_obs": 221,
+        "mean_iv": 0.23834818913928327,
+        "mean_garch_forecast": 0.24880822081581921,
+        "mean_rv": 0.2409219056864252,
+        "mean_vrp_iv_garch": -0.010460031676535947,
+        "mean_vrp_iv_rv": -0.0025737165471419196,
+        "vrp_positive_pct": 32.126696832579185,
+        "long_vol_n": 27,
+        "long_vol_mean_return": 0.027337085477962635,
+        "short_vol_n": 15,
+        "short_vol_mean_return": 0.03452548874388349,
+        "signal_hit_rate": 0.1409090909090909
+      },
+      "study2": {
+        "symbol": "SUZB3",
+        "decile_0_vrp": -0.05778563033781821,
+        "decile_9_vrp": 0.06693884589537812,
+        "decile_0_future_rv": 0.21263210677040148,
+        "decile_9_future_rv": 0.3452719190928831,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "SUZB3",
+        "regime_low_vrp": -0.020378402623212118,
+        "regime_medium_vrp": -0.002361436166152128,
+        "regime_high_vrp": -0.0028149705135769496,
+        "regime_extreme_vrp": 0.012139450983743215
+      },
+      "forecast_comp": {
+        "symbol": "SUZB3",
+        "n_obs": 201,
+        "ivx_mae": 0.06315158924838464,
+        "garch_mae": 0.07319796611720218,
+        "combined_mae": 0.06728111432192387,
+        "ivx_rmse": 0.09137455680545693,
+        "garch_rmse": 0.09877167004917782,
+        "combined_rmse": 0.09302204545649491,
+        "ivx_spearman": 0.43417762671789567,
+        "garch_spearman": -0.07406827249889168,
+        "combined_spearman": 0.3859893601300429,
+        "ivx_pearson": 0.3607783984966314,
+        "garch_pearson": -0.09641889686151868,
+        "combined_pearson": 0.3017336787260963
+      },
+      "study4": {
+        "symbol": "SUZB3",
+        "atm_iv": 0.22546347797037408,
+        "otm_put_iv": 0.26765172225818157,
+        "otm_call_iv": 0.23108491262384123,
+        "put_skew": 0.042188244287807486,
+        "call_skew": 0.00562143465346715,
+        "n_options": 68
+      }
+    },
+    "GGBR4": {
+      "oplab": {
+        "n_options": 40,
+        "n_valid_iv": 40
+      },
+      "study1": {
+        "symbol": "GGBR4",
+        "n_obs": 227,
+        "mean_iv": 0.28903276804084344,
+        "mean_garch_forecast": 0.2800796507558483,
+        "mean_rv": 0.24666924640803628,
+        "mean_vrp_iv_garch": 0.00895311728499514,
+        "mean_vrp_iv_rv": 0.042363521632807134,
+        "vrp_positive_pct": 50.22026431718062,
+        "long_vol_n": 7,
+        "long_vol_mean_return": 0.020138918649158965,
+        "short_vol_n": 33,
+        "short_vol_mean_return": 0.026796982685350305,
+        "signal_hit_rate": 0.13716814159292035
+      },
+      "study2": {
+        "symbol": "GGBR4",
+        "decile_0_vrp": -0.0451475258608668,
+        "decile_9_vrp": 0.09492457265165245,
+        "decile_0_future_rv": 0.21061209742878884,
+        "decile_9_future_rv": 0.2633825865755668,
+        "monotonic": 0.0
+      },
+      "study3": {
+        "symbol": "GGBR4",
+        "regime_low_vrp": -0.0037801355952722573,
+        "regime_medium_vrp": 0.026613124367795594,
+        "regime_high_vrp": 0.011802582802418318,
+        "regime_extreme_vrp": null
+      },
+      "forecast_comp": {
+        "symbol": "GGBR4",
+        "n_obs": 207,
+        "ivx_mae": 0.05517482139714002,
+        "garch_mae": 0.04659187098671723,
+        "combined_mae": 0.04939429588289932,
+        "ivx_rmse": 0.07062938385318045,
+        "garch_rmse": 0.059104487869664525,
+        "combined_rmse": 0.0613803620730646,
+        "ivx_spearman": 0.348409206524445,
+        "garch_spearman": -0.21250040588368996,
+        "combined_spearman": 0.3256553668647379,
+        "ivx_pearson": 0.25899292765933185,
+        "garch_pearson": -0.13900575031000015,
+        "combined_pearson": 0.2421811184592201
+      },
+      "study4": {
+        "symbol": "GGBR4",
+        "atm_iv": 0.295167143424988,
+        "otm_put_iv": 0.38798652316471943,
+        "otm_call_iv": 0.3269626827137332,
+        "put_skew": 0.09281937973973142,
+        "call_skew": 0.03179553928874518,
+        "n_options": 40
+      }
+    }
+  }
+}
