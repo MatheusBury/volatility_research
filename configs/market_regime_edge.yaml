@@ -1,0 +1,90 @@
+# Market Regime Edge Discovery — Configuração do Experimento
+study_name: market_regime_edge
+
+# Dados
+data_dir: C:\Users\mathe\Documents\GitHub\mt5\dataset\export_mt5\intraday\avista\M15
+timeframe: M15
+universe_size: 1593
+
+# Símbolos para análise (vazio = todos com liquidez)
+symbols: []
+
+# Períodos
+train_start: "2021-01-01"
+train_end: "2023-12-31"
+val_start: "2024-01-01"
+val_end: "2024-06-30"
+test_start: "2024-07-01"
+test_end: "2026-06-09"
+
+# Walk Forward
+wf_train_years: 2
+wf_val_months: 6
+wf_test_months: 6
+wf_step_months: 3
+
+# Custos
+cost_per_trade: 0.0010  # 10 bps
+slippage: 0.0005        # 5 bps
+cost_per_side: 0.0015   # 15 bps total (round trip)
+
+# Estratégias
+strategies:
+  - momentum
+  - mean_reversion
+  - gap_fade
+  - breakout
+  - vwap_reversion
+  - opening_range_breakout
+  - sr_bounce
+  - trend_following
+
+# Parâmetros das estratégias (defaults)
+strategy_params:
+  momentum_lookback: 20
+  mean_reversion_lookback: 20
+  mean_reversion_threshold: 2.0
+  gap_fade_threshold: 0.02
+  breakout_lookback: 20
+  breakout_multiplier: 1.5
+  vwap_lookback: 20
+  or_window: 4
+  sr_lookback: 50
+  sr_tolerance: 0.01
+  tf_lookback: 50
+
+# Contexto — variáveis a computar
+context:
+  # Volatilidade
+  vol_realized_5d: true
+  vol_realized_20d: true
+  vol_forecast: true
+  vol_percentile: true
+  vol_regime_hmm: true
+
+  # Volume
+  vol_relative: true
+  vol_percentile: true
+  vol_spike: true
+
+  # Tendência
+  sma200_distance: true
+  sma200_slope: true
+  adx: true
+  hurst: true
+
+  # Mercado
+  ibov_above_sma200: true
+  ibov_daily_change: true
+  sector_change: true
+
+  # Estrutura
+  support_distance: true
+  resistance_distance: true
+  atr: true
+  normalized_range: true
+
+# Análise
+bootstrap_iterations: 10000
+reality_check_permutations: 1000
+random_seed: 42
